@@ -249,6 +249,9 @@ object frmAddComputer: TfrmAddComputer
     Font.Quality = fqDraft
     Layout = tlCenter
     ParentFont = False
+    OnClick = lblCloseClick
+    OnMouseEnter = lblCloseMouseEnter
+    OnMouseLeave = lblCloseMouseLeave
   end
   object pnlEditType: TPanel
     Left = 120

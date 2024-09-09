@@ -71,6 +71,7 @@ object frmAddComputer: TfrmAddComputer
     FillGradient.Point2YPercent = 100
     Caption = 'shpFormBck1'
     RoundRadius = 10
+    OnMouseDown = shpFormBckMouseDown
   end
   object lblType: TLabel
     Left = 83
@@ -248,6 +249,8 @@ object frmAddComputer: TfrmAddComputer
     Font.Quality = fqDraft
     Layout = tlCenter
     ParentFont = False
+    OnMouseEnter = lblCloseMouseEnter
+    OnMouseLeave = lblCloseMouseLeave
   end
   object pnlEditType: TPanel
     Left = 120

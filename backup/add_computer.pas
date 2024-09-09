@@ -72,6 +72,8 @@ type
     procedure edtNameDblClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormShow(Sender: TObject);
+    procedure lblCloseMouseEnter(Sender: TObject);
+    procedure lblCloseMouseLeave(Sender: TObject);
     procedure lsboxTypeMenuClick(Sender: TObject);
     procedure lsboxTypeMenuDrawItem(Control: TWinControl; Index: Integer;
       ARect: TRect; State: TOwnerDrawState);
@@ -112,6 +114,22 @@ begin
   SetLayeredWindowAttributes(Handle, frmAddComputer.Color, 255, LWA_COLORKEY);
   //Set clear edit boxes
   pnlTypeMenu.Visible := False;
+end;
+
+procedure TfrmAddComputer.lblCloseMouseEnter(Sender: TObject);
+begin
+  shpBtnClose1.Visible := True;
+  shpBtnClose2.Visible := True;
+  shpBtnClose3.Visible := True;
+  lblClose.Font.Color := clWhite;
+end;
+
+procedure TfrmAddComputer.lblCloseMouseLeave(Sender: TObject);
+begin
+  shpBtnClose1.Visible := False;
+  shpBtnClose2.Visible := False;
+  shpBtnClose3.Visible := False;
+  lblClose.Font.Color := clBlack;
 end;
 
 procedure TfrmAddComputer.lsboxTypeMenuClick(Sender: TObject);
