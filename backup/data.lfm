@@ -1,0 +1,45 @@
+object DBModule: TDBModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 349
+  HorizontalOffset = 576
+  VerticalOffset = 270
+  Width = 473
+  object SQLite3Conn: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Params.Strings = (
+      ''
+    )
+    Transaction = SQLT
+    AlwaysUseBigint = False
+    Left = 48
+    Top = 32
+  end
+  object SQLT: TSQLTransaction
+    Active = False
+    Database = SQLite3Conn
+    Left = 160
+    Top = 32
+  end
+  object SQLQuery: TSQLQuery
+    PacketRecords = -1
+    FieldDefs = <>
+    Database = SQLite3Conn
+    Transaction = SQLT
+    InsertSQL.Strings = (
+      'select * from users'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit]
+    Params = <>
+    Macros = <>
+    Left = 264
+    Top = 32
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery
+    Left = 352
+    Top = 32
+  end
+end

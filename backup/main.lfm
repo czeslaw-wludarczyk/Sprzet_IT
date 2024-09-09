@@ -1,0 +1,1085 @@
+object frmMain: TfrmMain
+  Left = 304
+  Height = 773
+  Top = 127
+  Width = 1024
+  Caption = 'Sprzęt IT'
+  ClientHeight = 773
+  ClientWidth = 1024
+  Color = 15987699
+  Constraints.MinHeight = 300
+  Font.CharSet = EASTEUROPE_CHARSET
+  Font.Height = -13
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  LCLVersion = '3.4.0.0'
+  object pnlSplitView: TPanel
+    Left = 0
+    Height = 726
+    Top = 47
+    Width = 72
+    Align = alLeft
+    BevelColor = 15987699
+    BevelOuter = bvNone
+    ClientHeight = 726
+    ClientWidth = 72
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -19
+    Font.Name = 'Segoe MDL2 Assets'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    object ScrollBox1: TScrollBox
+      Left = 0
+      Height = 602
+      Top = 0
+      Width = 72
+      HorzScrollBar.Page = 1
+      HorzScrollBar.Visible = False
+      VertScrollBar.Increment = 51
+      VertScrollBar.Page = 512
+      VertScrollBar.Smooth = True
+      VertScrollBar.Tracking = True
+      Align = alClient
+      BorderStyle = bsNone
+      ClientHeight = 602
+      ClientWidth = 72
+      Color = 15987699
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      object pnlHomeMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 2
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 0
+        OnClick = pnlHomeMenuClick
+        OnMouseEnter = pnlHomeMenuMouseEnter
+        OnMouseLeave = pnlHomeMenuMouseLeave
+        object lblHomeBck: TBGRAShape
+          Left = 5
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnClick = pnlHomeMenuClick
+          OnMouseEnter = pnlHomeMenuMouseEnter
+          OnMouseLeave = pnlHomeMenuMouseLeave
+        end
+        object lblUserMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 0
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlHomeMenuClick
+          OnMouseEnter = pnlHomeMenuMouseEnter
+          OnMouseLeave = pnlHomeMenuMouseLeave
+        end
+        object lblUserMenu2: TLabel
+          Left = 5
+          Height = 13
+          Top = 35
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Dashboard'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlHomeMenuClick
+          OnMouseEnter = pnlHomeMenuMouseEnter
+          OnMouseLeave = pnlHomeMenuMouseLeave
+        end
+      end
+      object pnlUsersMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 61
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 1
+        OnClick = pnlUsersMenuClick
+        OnMouseEnter = pnlUsersMenuMouseEnter
+        OnMouseLeave = pnlUsersMenuMouseLeave
+        object lblUsersBck: TBGRAShape
+          Left = 5
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnClick = pnlUsersMenuClick
+          OnMouseEnter = pnlUsersMenuMouseEnter
+          OnMouseLeave = pnlUsersMenuMouseLeave
+        end
+        object lblUsersMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 0
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlUsersMenuClick
+          OnMouseEnter = pnlUsersMenuMouseEnter
+          OnMouseLeave = pnlUsersMenuMouseLeave
+        end
+        object lblUsersMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 36
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Użytkownicy'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlUsersMenuClick
+          OnMouseEnter = pnlUsersMenuMouseEnter
+          OnMouseLeave = pnlUsersMenuMouseLeave
+        end
+      end
+      object pnlPhonesMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 238
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 2
+        OnClick = pnlPhonesMenuClick
+        OnMouseEnter = pnlPhonesMenuMouseEnter
+        OnMouseLeave = pnlPhonesMenuMouseLeave
+        object lblPhonesBck: TBGRAShape
+          Left = 5
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnClick = pnlPhonesMenuClick
+          OnMouseEnter = pnlPhonesMenuMouseEnter
+          OnMouseLeave = pnlPhonesMenuMouseLeave
+        end
+        object lblPhonesMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 0
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlPhonesMenuClick
+          OnMouseEnter = pnlPhonesMenuMouseEnter
+          OnMouseLeave = pnlPhonesMenuMouseLeave
+        end
+        object lblPhonesMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 40
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Telefony'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlPhonesMenuClick
+          OnMouseEnter = pnlPhonesMenuMouseEnter
+          OnMouseLeave = pnlPhonesMenuMouseLeave
+        end
+      end
+      object pnlDivideMenu2: TPanel
+        Left = 0
+        Height = 40
+        Top = 295
+        Width = 72
+        Align = alTop
+        BevelOuter = bvNone
+        ParentBackground = False
+        TabOrder = 3
+      end
+      object pnlReleaseMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 337
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 4
+        OnMouseEnter = pnlReleaseMenuMouseEnter
+        OnMouseLeave = pnlReleaseMenuMouseLeave
+        object lblReleaseBck: TBGRAShape
+          Left = 4
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnMouseEnter = pnlReleaseMenuMouseEnter
+          OnMouseLeave = pnlReleaseMenuMouseLeave
+        end
+        object lblReleaseMenu1: TLabel
+          Left = 4
+          Height = 38
+          Top = 0
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnMouseEnter = pnlReleaseMenuMouseEnter
+          OnMouseLeave = pnlReleaseMenuMouseLeave
+        end
+        object lblReleaseMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 40
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Wydanie'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          WordWrap = True
+          OnMouseEnter = pnlReleaseMenuMouseEnter
+          OnMouseLeave = pnlReleaseMenuMouseLeave
+        end
+      end
+      object pnlReturnMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 396
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 5
+        OnMouseEnter = pnlReturnMenuMouseEnter
+        OnMouseLeave = pnlReturnMenuMouseLeave
+        object lblReturnBck: TBGRAShape
+          Left = 4
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnMouseEnter = pnlReturnMenuMouseEnter
+          OnMouseLeave = pnlReturnMenuMouseLeave
+        end
+        object lblReturnMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 4
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnMouseEnter = pnlReturnMenuMouseEnter
+          OnMouseLeave = pnlReturnMenuMouseLeave
+        end
+        object lblReturnMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 40
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Zwrot'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnMouseEnter = pnlReturnMenuMouseEnter
+          OnMouseLeave = pnlReturnMenuMouseLeave
+        end
+      end
+      object pnlTrashMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 455
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 6
+        OnMouseEnter = pnlTrashMenuMouseEnter
+        OnMouseLeave = pnlTrashMenuMouseLeave
+        object lblTrashBck: TBGRAShape
+          Left = 4
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnMouseEnter = pnlTrashMenuMouseEnter
+          OnMouseLeave = pnlTrashMenuMouseLeave
+        end
+        object lblTrashMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 0
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnMouseEnter = pnlTrashMenuMouseEnter
+          OnMouseLeave = pnlTrashMenuMouseLeave
+        end
+        object lblTrashMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 40
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Utylizacja'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnMouseEnter = pnlTrashMenuMouseEnter
+          OnMouseLeave = pnlTrashMenuMouseLeave
+        end
+      end
+      object pnlAccesoriesMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 179
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 7
+        OnClick = pnlAccesoriesMenuClick
+        OnMouseEnter = pnlAccesoriesMenuMouseEnter
+        OnMouseLeave = pnlAccesoriesMenuMouseLeave
+        object lblAccesoriesBck: TBGRAShape
+          Left = 5
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnClick = pnlAccesoriesMenuClick
+          OnMouseEnter = pnlAccesoriesMenuMouseEnter
+          OnMouseLeave = pnlAccesoriesMenuMouseLeave
+        end
+        object lblAccesoriesMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 5
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlAccesoriesMenuClick
+          OnMouseEnter = pnlAccesoriesMenuMouseEnter
+          OnMouseLeave = pnlAccesoriesMenuMouseLeave
+        end
+        object lblAccesoriesMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 40
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Akcesoria'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlAccesoriesMenuClick
+          OnMouseEnter = pnlAccesoriesMenuMouseEnter
+          OnMouseLeave = pnlAccesoriesMenuMouseLeave
+        end
+      end
+      object pnlComputersMenu: TPanel
+        Left = 0
+        Height = 57
+        Top = 120
+        Width = 72
+        Align = alTop
+        BorderSpacing.Top = 2
+        BevelOuter = bvNone
+        ClientHeight = 57
+        ClientWidth = 72
+        ParentBackground = False
+        TabOrder = 8
+        OnClick = pnlComputersMenuClick
+        OnMouseEnter = pnlComputersMenuMouseEnter
+        OnMouseLeave = pnlComputersMenuMouseLeave
+        object lblComputersBck: TBGRAShape
+          Left = 5
+          Height = 57
+          Top = 0
+          Width = 63
+          Angle = 45
+          BorderWidth = 0
+          BorderColor = clWindowText
+          BorderGradient.StartColor = clWhite
+          BorderGradient.EndColor = clBlack
+          BorderGradient.GradientType = gtLinear
+          BorderGradient.Point1XPercent = 0
+          BorderGradient.Point1YPercent = 0
+          BorderGradient.Point2XPercent = 100
+          BorderGradient.Point2YPercent = 100
+          FillColor = 15395562
+          FillOpacity = 255
+          FillGradient.StartColor = clWhite
+          FillGradient.EndColor = clBlack
+          FillGradient.GradientType = gtLinear
+          FillGradient.Point1XPercent = 0
+          FillGradient.Point1YPercent = 0
+          FillGradient.Point2XPercent = 0
+          FillGradient.Point2YPercent = 100
+          BorderSpacing.Left = 5
+          RoundRadius = 8
+          Visible = False
+          OnClick = pnlComputersMenuClick
+          OnMouseEnter = pnlComputersMenuMouseEnter
+          OnMouseLeave = pnlComputersMenuMouseLeave
+        end
+        object lblComputersMenu1: TLabel
+          Left = 4
+          Height = 41
+          Top = 5
+          Width = 63
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ''
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Segoe MDL2 Assets'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlComputersMenuClick
+          OnMouseEnter = pnlComputersMenuMouseEnter
+          OnMouseLeave = pnlComputersMenuMouseLeave
+        end
+        object lblComputersMenu2: TLabel
+          Left = 5
+          Height = 12
+          Top = 40
+          Width = 62
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Komputery'
+          Font.CharSet = EASTEUROPE_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = pnlComputersMenuClick
+          OnMouseEnter = pnlComputersMenuMouseEnter
+          OnMouseLeave = pnlComputersMenuMouseLeave
+        end
+      end
+      object pnlDivideMenu5: TPanel
+        Left = 0
+        Height = 90
+        Top = 512
+        Width = 72
+        Align = alClient
+        BevelOuter = bvNone
+        ParentBackground = False
+        TabOrder = 9
+      end
+    end
+    object pnlInfoMenu: TPanel
+      Left = 0
+      Height = 57
+      Top = 664
+      Width = 72
+      Align = alBottom
+      BorderSpacing.Top = 2
+      BorderSpacing.Bottom = 5
+      BevelOuter = bvNone
+      ClientHeight = 57
+      ClientWidth = 72
+      ParentBackground = False
+      TabOrder = 1
+      OnMouseEnter = pnlInfoMenuMouseEnter
+      OnMouseLeave = pnlInfoMenuMouseLeave
+      object lblInfoBck: TBGRAShape
+        Left = 4
+        Height = 57
+        Top = 0
+        Width = 63
+        Angle = 45
+        BorderWidth = 0
+        BorderColor = clWindowText
+        BorderGradient.StartColor = clWhite
+        BorderGradient.EndColor = clBlack
+        BorderGradient.GradientType = gtLinear
+        BorderGradient.Point1XPercent = 0
+        BorderGradient.Point1YPercent = 0
+        BorderGradient.Point2XPercent = 100
+        BorderGradient.Point2YPercent = 100
+        FillColor = 15395562
+        FillOpacity = 255
+        FillGradient.StartColor = clWhite
+        FillGradient.EndColor = clBlack
+        FillGradient.GradientType = gtLinear
+        FillGradient.Point1XPercent = 0
+        FillGradient.Point1YPercent = 0
+        FillGradient.Point2XPercent = 0
+        FillGradient.Point2YPercent = 100
+        BorderSpacing.Left = 5
+        RoundRadius = 8
+        Visible = False
+        OnMouseEnter = pnlInfoMenuMouseEnter
+        OnMouseLeave = pnlInfoMenuMouseLeave
+      end
+      object lblInfoMenu1: TLabel
+        Left = 4
+        Height = 41
+        Top = 0
+        Width = 63
+        Alignment = taCenter
+        AutoSize = False
+        Caption = ''
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -21
+        Font.Name = 'Segoe MDL2 Assets'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Layout = tlCenter
+        ParentFont = False
+        OnMouseEnter = pnlInfoMenuMouseEnter
+        OnMouseLeave = pnlInfoMenuMouseLeave
+      end
+      object lblInfoMenu2: TLabel
+        Left = 5
+        Height = 12
+        Top = 40
+        Width = 62
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Informacje'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Segoe UI'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Layout = tlCenter
+        ParentFont = False
+        OnMouseEnter = pnlInfoMenuMouseEnter
+        OnMouseLeave = pnlInfoMenuMouseLeave
+      end
+    end
+    object pnlSettingsMenu: TPanel
+      Left = 0
+      Height = 57
+      Top = 605
+      Width = 72
+      Align = alBottom
+      BorderSpacing.Top = 2
+      BevelOuter = bvNone
+      ClientHeight = 57
+      ClientWidth = 72
+      ParentBackground = False
+      TabOrder = 2
+      OnMouseEnter = pnlSettingsMenuMouseEnter
+      OnMouseLeave = pnlSettingsMenuMouseLeave
+      object lblSettingsBck: TBGRAShape
+        Left = 4
+        Height = 57
+        Top = 0
+        Width = 63
+        Angle = 45
+        BorderWidth = 0
+        BorderColor = clWindowText
+        BorderGradient.StartColor = clWhite
+        BorderGradient.EndColor = clBlack
+        BorderGradient.GradientType = gtLinear
+        BorderGradient.Point1XPercent = 0
+        BorderGradient.Point1YPercent = 0
+        BorderGradient.Point2XPercent = 100
+        BorderGradient.Point2YPercent = 100
+        FillColor = 15395562
+        FillOpacity = 255
+        FillGradient.StartColor = clWhite
+        FillGradient.EndColor = clBlack
+        FillGradient.GradientType = gtLinear
+        FillGradient.Point1XPercent = 0
+        FillGradient.Point1YPercent = 0
+        FillGradient.Point2XPercent = 0
+        FillGradient.Point2YPercent = 100
+        BorderSpacing.Left = 5
+        RoundRadius = 8
+        Visible = False
+        OnMouseEnter = pnlSettingsMenuMouseEnter
+        OnMouseLeave = pnlSettingsMenuMouseLeave
+      end
+      object lblSettingsMenu1: TLabel
+        Left = 4
+        Height = 41
+        Top = 0
+        Width = 63
+        Alignment = taCenter
+        AutoSize = False
+        Caption = ''
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -21
+        Font.Name = 'Segoe MDL2 Assets'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Layout = tlCenter
+        ParentFont = False
+        OnMouseEnter = pnlSettingsMenuMouseEnter
+        OnMouseLeave = pnlSettingsMenuMouseLeave
+      end
+      object lblSettingsMenu2: TLabel
+        Left = 5
+        Height = 12
+        Top = 40
+        Width = 62
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Ustawienia'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Segoe UI'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Layout = tlCenter
+        ParentFont = False
+        OnMouseEnter = pnlSettingsMenuMouseEnter
+        OnMouseLeave = pnlSettingsMenuMouseLeave
+      end
+    end
+    object shpSplitMenuDivideBottom: TShape
+      Left = 2
+      Height = 1
+      Top = 602
+      Width = 68
+      Align = alBottom
+      BorderSpacing.Left = 2
+      BorderSpacing.Right = 2
+      Pen.Color = clSilver
+    end
+  end
+  object pnlContentBck: TPanel
+    Left = 72
+    Height = 726
+    Top = 47
+    Width = 952
+    Align = alClient
+    BevelColor = 15987699
+    BevelOuter = bvNone
+    Caption = 'Content'
+    ClientHeight = 726
+    ClientWidth = 952
+    ParentBackground = False
+    TabOrder = 1
+    object shpContent: TBGRAShape
+      Left = 0
+      Height = 756
+      Top = 0
+      Width = 976
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Angle = 45
+      BorderColor = clSilver
+      BorderGradient.StartColor = clWhite
+      BorderGradient.EndColor = clBlack
+      BorderGradient.GradientType = gtLinear
+      BorderGradient.Point1XPercent = 0
+      BorderGradient.Point1YPercent = 0
+      BorderGradient.Point2XPercent = 100
+      BorderGradient.Point2YPercent = 100
+      FillColor = clWhite
+      FillOpacity = 255
+      FillGradient.StartColor = clWhite
+      FillGradient.EndColor = clBlack
+      FillGradient.GradientType = gtLinear
+      FillGradient.Point1XPercent = 0
+      FillGradient.Point1YPercent = 0
+      FillGradient.Point2XPercent = 0
+      FillGradient.Point2YPercent = 100
+      Caption = 'shpContent'
+      RoundRadius = 10
+    end
+    object pnlContent: TPanel
+      Left = 4
+      Height = 718
+      Top = 4
+      Width = 944
+      Align = alClient
+      BorderSpacing.Around = 4
+      BevelOuter = bvNone
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+    end
+  end
+  object pnlDivideMenu3: TPanel
+    Left = 0
+    Height = 47
+    Top = 0
+    Width = 1024
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 47
+    ClientWidth = 1024
+    Color = 15987699
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object lblTitleMenuForm: TLabel
+      Left = 100
+      Height = 47
+      Top = 0
+      Width = 124
+      Align = alLeft
+      BorderSpacing.Left = 100
+      Caption = 'Dashboard'
+      Font.CharSet = EASTEUROPE_CHARSET
+      Font.Color = clBlack
+      Font.Height = -24
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      Layout = tlCenter
+      ParentFont = False
+    end
+  end
+  object imgListBtn: TImageList
+    Height = 24
+    Width = 24
+    Left = 1044
+    Top = 6
+    Bitmap = {
+      4C7A0600000018000000180000007D0600000000000078DAED9A096C15551486
+      0778501E54A92C4A946E10356EEC8A540C364043DD40A2A0D16813D148A48A31
+      1A545450C0A56A11909652103426C63415D40415155444716925A01045DB2220
+      55B41593A202D673C2F792E738CB9BA5169239C99F9977EF7D67EE3BF72CFFBD
+      6F0CA3DDA4AF6092E02E3089B63064A8E02341A3E00FD048DB90007A3B082E11
+      7C2FD8249822E803AEA54DFB4633D6ABF414AC123408CEB1E8D7B67AC6F4F4A1
+      7F90A04E30D761CC3CC17782813EF45F2CF84B30DE614CA1E04FC1281FFA2F14
+      FC26B8DE61CC0D8266C67A95D3059F09563B8C794DF02963BD4A2741B1E08060
+      962053D019E8FD23F44D67AC1F515F7C1A3D6F0B9E149408D6D1A67DD9823CE6
+      720FCFD3CFDD52D0AFDF7D5EF0B7A0D5046D7B5DF09260A7A0057F68E1F33241
+      968B6F7C25F841F01473EA253889F554BD878981C70439827441AEE071E2E66B
+      E668965CFA6A04132CFABB0B56101F13055DD03F9B6B1772943EBBD264AB8E82
+      05825D822B04310BFDA388AB39ACB7412E69E56AF08C47B1555ED2772F107CCB
+      3ADAC99D8283CC35079D33D03F83CF39D8A185B54F48510A3173BFE088208E4D
+      5A2D309B7E5DA3FB92BE7BAFE090E0C410E6DF9F7177788C8B20F64F45BCF84F
+      798AB16616D5B33DC9FFB3F82DD926FFCF0C50E3B2F1EF9DD8F908D754E2D78B
+      ADF258F307B8E6F9B4C9F12A11FF89F84FC47F22FE73ACF29FF30469F4A5F139
+      2CFEA3BAD60A1E12F4E0BA96F630F88FD6DA99C4C15EAE33690F83FF18CCBB9E
+      75AFE7B31112FF8993A39A04DF709D4B7B18FCC7ABFDFDF01F27FF89F84FC47F
+      DA5A62C4F3138257052F12F3E921E8D69859492D567FDB28D82CD84DBC5E96B4
+      C7F02A9DA98DBFE2D3E70ABA5207C6539FBF140CF6A97F18735E66938F0A88AF
+      129FFA8BC9AF76FC40EDBF945AE1471279B8AB03C798CF1C8EC5F90F238755DA
+      D8BF10DD2526DE7D8660045737FF79D0E43F313884EAAE35F94F07D6FC0BEA8C
+      5ECF77794606F174005FFA40F009FEAF79F272E691D0BD15DE514C7FA5CB1EE0
+      36C1CF827DCC57E3EB63ECA675BA8AD89E82AF6A4CF4C33E3B581F2BE9051FD4
+      DFF982E02AF2799CB518C47E5D63781BBA37B066C3B9AFE3B3954C677E8B05BD
+      6DC6C4A9C107F94D43E02435709C49367BA7DED86425BFC34A9487DD24D8C35E
+      4CF7932359EF9AA4730E2B29C2DE131DE26A02BAD761AB913C476D92EFE23315
+      CC21D3665F59C8FA6EC626FDF0458D85C929C495E6F98536DCF3146A80FADE69
+      F8F7E770EDF13EF7AAC972267EFAB2E01AE26117BA3B86506F46E0B3899850DD
+      D78530EFE49CBF5E5026B851302044DD06BC261E519276919305D3A8F7D5A082
+      1CDB2780DEE1F0F826FCB1965CB089FB5DD4A032877C69C7DB12FBE03AF6EB63
+      C9D327806CDA9E61CC36BEE37666A03E7D2535621339AB9B0B4FCF67EC0EF6B6
+      1D5CE27407B5B08787DF9CC199CA7697DA5BC11E2EDFC77A8DE16CAEDCC14F9A
+      B0A99D4D4A819DAD4AD16155FBA6B13F1BE330C7F5C04EC6E257B75AF42DA5BE
+      F473F8FE06602759F86EB9CDB9D7468B3C569A34EF2690F85C6A51FB55C71A07
+      FD5DDB487F98F629B3E8BB85B51917607D0B38FBBAB91DFCD360DD83C497E6A2
+      252E39735B80FCB035855C5A40EEDC424E74DAEFA633660BDF1997E2196E223F
+      2B3F5E04CFC9E29C278DFB4278708387FC6C555F9AD957A8DF7D086A696BF651
+      5FECEAE30ACEC0D6723F2D607D8C24E23F11FFF97FF84FCCC68E61F09F899C27
+      A59BF2E67CD35ED90FFFD1393E4C1E5BC27EBD2FF7CDF4C502F21FCDC7CF0AF6
+      0B9683FDB4A585C07F0CE248EBC0EF60914D6CF9E13F2AA732EF84FEE5B479D1
+      6F679F74CEA3F6737EB090FB4A8BDAE995FFC438EB39402D4CFC57BE98B639A6
+      F5F5C37F46735E9C665AF359F485C17F528DAF88FF44FC2792E34F3A857CDE97
+      90B3C9A3EAA73F1947CF68C37AC72997BDEA6EE26C15E7A3F342D2ADE7C587C9
+      6719C4823E636F40DD83D9033752ABF45ACC339E13FC62F83F33CE11BC47CE99
+      6A1C7D57A09A7AB6045B9507D05DCD7CA752A7D567F47F327DAFEC10BFEB2C1F
+      BA357FBD2FF8D1F8F7BB53716CA3EB5A65F8FBEF7D00BAB5361599FA54B7FE9F
+      F14E00DD6B98779189BB4C66DEAADBCFBB6443DBD026FD5D6CA27EF25600DDAB
+      5D6CF2A661FD7E9F9B64E3DF89778DBBD3AECFB81D3F7FC5E58CCB49D4CE2DC4
+      CF1EF68871B85D03CFCE0D10FB77C311F53FBE37D0A9FFF3EEC3260303E6962A
+      72CA4582ABE192ADC46D4E08797127BEB191ABBE57FA6E48BA33D0D780FFE83B
+      53971AD6EFB2F99178C467FE2BFF00AB68891C
+    }
+  end
+end

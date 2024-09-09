@@ -1,0 +1,25 @@
+inherited frmDelUser: TfrmDelUser
+  Left = 659
+  Top = 413
+  OnCloseQuery = FormCloseQuery
+  OnShow = FormShow
+  inherited lblClose: TLabel
+    OnClick = lblCloseClick
+    OnMouseEnter = lblCloseMouseEnter
+    OnMouseLeave = lblCloseMouseLeave
+  end
+  inherited btnOK: TButton
+    Left = 342
+    Caption = 'Tak'
+    ModalResult = 1
+  end
+  inherited btnCancel: TButton
+    Caption = 'Nie'
+    ModalResult = 2
+  end
+  inherited lblDeleteInfo: TLabel
+    Left = 114
+    Width = 207
+    Caption = 'Na pewno chcesz usunąć użytkownika?'
+  end
+end

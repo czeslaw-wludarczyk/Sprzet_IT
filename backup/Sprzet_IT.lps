@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Debug"/>
+    <Units>
+      <Unit>
+        <Filename Value="Sprzet_IT.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="29"/>
+        <UsageCount Value="200"/>
+      </Unit>
+      <Unit>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Main"/>
+        <TopLine Value="152"/>
+        <CursorPos X="40" Y="164"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="dashboard.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDashboard"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="55"/>
+        <CursorPos X="12" Y="9"/>
+        <UsageCount Value="198"/>
+      </Unit>
+      <Unit>
+        <Filename Value="data.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DBModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="Data"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="15"/>
+        <CursorPos X="30" Y="31"/>
+        <UsageCount Value="183"/>
+      </Unit>
+      <Unit>
+        <Filename Value="users.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUsers"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="329"/>
+        <CursorPos X="3" Y="335"/>
+        <UsageCount Value="177"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="add_user.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAddUser"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="75"/>
+        <CursorPos Y="82"/>
+        <UsageCount Value="115"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="shadow.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmShadow"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="22"/>
+        <CursorPos X="45" Y="31"/>
+        <UsageCount Value="111"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="del_user_error.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDelUserError"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos Y="46"/>
+        <UsageCount Value="67"/>
+      </Unit>
+      <Unit>
+        <Filename Value="edit_user.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEditUser"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="260"/>
+        <CursorPos X="42" Y="267"/>
+        <UsageCount Value="61"/>
+      </Unit>
+      <Unit>
+        <Filename Value="del_user.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDelUser"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="31" Y="62"/>
+        <UsageCount Value="52"/>
+      </Unit>
+      <Unit>
+        <Filename Value="computers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmComputers"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="93"/>
+        <CursorPos X="23" Y="188"/>
+        <UsageCount Value="44"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="add_computer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAddComputer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="132"/>
+        <CursorPos X="6" Y="145"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="db.pas"/>
+        <ComponentName Value="DBModule"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2119"/>
+        <CursorPos Y="2138"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\fpc\3.2.2\source\packages\fcl-db\src\sqldb\sqldblib.pp"/>
+        <UnitName Value="SQLDBLib"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25" Y="8"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\include\application.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1411"/>
+        <CursorPos Y="1429"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\interfaces\win32\win32object.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="358"/>
+        <CursorPos Y="377"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\lresources.pp"/>
+        <UnitName Value="LResources"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3148"/>
+        <CursorPos X="42" Y="3164"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="sqlite3.dll"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\include\control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4656"/>
+        <CursorPos Y="4675"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\sqltypes.pp"/>
+        <UnitName Value="SQLTypes"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\fpc\3.2.2\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2250"/>
+        <CursorPos X="24" Y="2290"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1583"/>
+        <CursorPos X="28" Y="1600"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\interfaces\win32\win32listsl.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="141"/>
+        <CursorPos Y="153"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\include\customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="223"/>
+        <CursorPos Y="241"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\customflowpanel.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="57"/>
+        <CursorPos Y="75"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6471"/>
+        <CursorPos Y="6489"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1612"/>
+        <CursorPos X="28" Y="1623"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1803"/>
+        <CursorPos X="22" Y="1819"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\lazutils\laztracer.pas"/>
+        <UnitName Value="LazTracer"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="40"/>
+        <CursorPos Y="58"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\include\wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6471"/>
+        <CursorPos Y="6489"/>
+        <UsageCount Value="1"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32listsl.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="135"/>
+        <CursorPos Y="153"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="223"/>
+        <CursorPos Y="241"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\lcl\interfaces\win32\win32callback.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2020"/>
+        <CursorPos Y="2039"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\components\lazutils\laztracer.pas"/>
+        <UnitName Value="LazTracer"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="40"/>
+        <CursorPos Y="58"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1802"/>
+        <CursorPos X="30" Y="1818"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1863"/>
+        <CursorPos Y="1879"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\include\customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="224"/>
+        <CursorPos Y="241"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\include\wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5660"/>
+        <CursorPos Y="5677"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="35" Y="9"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1061"/>
+        <CursorPos Y="1078"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\dbctrls.pp"/>
+        <UnitName Value="DBCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1653"/>
+        <CursorPos Y="1670"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\interfaces\win32\win32listsl.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="136"/>
+        <CursorPos Y="153"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="10" Column="30"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="9" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="97" Column="5" TopLine="63"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="73" Column="42" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="109" Column="47" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="103" Column="22" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="93" Column="82" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="94" Column="82" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="93" Column="82" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="94" Column="82" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="116" Column="16" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="109" Column="25" TopLine="78"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="116" Column="21" TopLine="89"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="93" Column="19" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="109" Column="53" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="104" Column="30" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="116" Column="5" TopLine="83"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="77" Column="19" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="121" Column="29" TopLine="99"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="9" Column="28"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="128" Column="5" TopLine="108"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="114" Column="5" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="users.pas"/>
+        <Caret Line="380" Column="44" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="computers.pas"/>
+        <Caret Line="225" Column="9" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="129" Column="3" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="143" Column="143" TopLine="133"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="158" Column="5" TopLine="133"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="73" Column="70" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="151" Column="30" TopLine="132"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="147" Column="20" TopLine="132"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+    <HistoryLists>
+      <List Name="LaunchingApplication" Type="File" Count="1">
+        <Item1 Value="C:\Windows\system32\cmd.exe /C ${TargetCmdLine}"/>
+      </List>
+    </HistoryLists>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="db.pas"/>
+        <Line Value="8"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

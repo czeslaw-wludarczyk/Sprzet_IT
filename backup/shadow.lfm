@@ -1,0 +1,13 @@
+object frmShadow: TfrmShadow
+  Left = 526
+  Height = 240
+  Top = 408
+  Width = 320
+  AlphaBlend = True
+  AlphaBlendValue = 100
+  BorderIcons = []
+  BorderStyle = bsNone
+  Color = clBlack
+  OnShow = FormShow
+  LCLVersion = '3.4.0.0'
+end
