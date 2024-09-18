@@ -13,17 +13,21 @@ type
   { TfrmAddComputer }
 
   TfrmAddComputer = class(TForm)
+    shpBckButton1: TBGRAShape;
     btnCancel: TButton;
     btnSave: TButton;
     edtName: TEdit;
-    edtNumber: TEdit;
-    edtNumber1: TEdit;
-    edtNumber2: TEdit;
-    edtSurname: TEdit;
+    edtMark: TEdit;
+    edtModel: TEdit;
+    edtSN: TEdit;
+    edtAQName: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
     lblClose: TLabel;
     lblType: TLabel;
     lblMark: TLabel;
@@ -35,7 +39,7 @@ type
     lblComputerTitle: TLabel;
     lblType1: TLabel;
     lsboxTypeMenu: TListBox;
-    Memo1: TMemo;
+    edtDescription: TMemo;
     pnlTypeMenu: TPanel;
     pnlEditType: TPanel;
     pnlEditDescription: TPanel;
@@ -69,22 +73,47 @@ type
     shpLineEdit7: TShape;
     shpLineEdit8: TShape;
     shpLineEdit9: TShape;
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+    procedure edtAQNameChange(Sender: TObject);
+    procedure edtAQNameExit(Sender: TObject);
+    procedure edtAQNameKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtDescriptionEnter(Sender: TObject);
+    procedure edtDescriptionExit(Sender: TObject);
+    procedure edtMarkChange(Sender: TObject);
+    procedure edtMarkExit(Sender: TObject);
+    procedure edtMarkKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure edtModelChange(Sender: TObject);
+    procedure edtModelExit(Sender: TObject);
+    procedure edtModelKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtNameDblClick(Sender: TObject);
+    procedure edtAQNameEnter(Sender: TObject);
+    procedure edtMarkEnter(Sender: TObject);
+    procedure edtModelEnter(Sender: TObject);
+    procedure edtSNChange(Sender: TObject);
+    procedure edtSNEnter(Sender: TObject);
+    procedure edtSNExit(Sender: TObject);
+    procedure edtSNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormShow(Sender: TObject);
     procedure lblCloseClick(Sender: TObject);
     procedure lblCloseMouseEnter(Sender: TObject);
     procedure lblCloseMouseLeave(Sender: TObject);
+    procedure lblType1MouseEnter(Sender: TObject);
+    procedure lblType1MouseLeave(Sender: TObject);
     procedure lsboxTypeMenuClick(Sender: TObject);
-    procedure lsboxTypeMenuDrawItem(Control: TWinControl; Index: Integer;
+    procedure lsboxTypeMenuDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
-    procedure lsboxTypeMenuMouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
+    procedure lsboxTypeMenuMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: integer);
     procedure shpFormBckMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
   private
-     procedure CloseTypeMenu();
-
+    procedure CloseTypeMenu();
+    procedure Save();
   public
   var
     added_item: string;
@@ -102,9 +131,41 @@ uses shadow, Data;
 
   { TfrmAddComputer }
 
+procedure TfrmAddComputer.Save();
+begin
+    if (edtAQName.Text <> '') and (edtMark.Text <> '') and (edtModel.Text <> '') and (edtSN.Text <> '') then
+  begin
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'select name, aq_name, mark, model, serial_number, description from items where name = :name'
+      +
+      ' and aq_name = :aq_name and mark = :mark and model = :model and serial_number = :SN';
+    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+    DBModule.SQLQuery.Params.ParamByName('aq_name').AsString := edtAQName.Text;
+    DBModule.SQLQuery.Params.ParamByName('mark').AsString := edtMark.Text;
+    DBModule.SQLQuery.Params.ParamByName('model').AsString := edtModel.Text;
+    DBModule.SQLQuery.Params.ParamByName('SN').AsString := edtSN.Text;
+    DBModule.SQLQuery.Open;
+  end
+  else
+  begin
+    if (edtAQName.Text = '') or (edtAQName.Text = ' ') then shpEditBck2.BorderColor := clRed;
+    if (edtMark.Text = '') or (edtMark.Text = ' ') then shpEditBck3.BorderColor := clRed;
+    if (edtModel.Text = '') or (edtModel.Text = ' ') then shpEditBck4.BorderColor := clRed;
+    if (edtSN.Text = '') or (edtSN.Text = ' ') then shpEditBck5.BorderColor := clRed;
+    Exit;
+  end;
+
+  if DBModule.SQLQuery.RecordCount > 0 then
+  begin
+    lblComputerExist.Visible := True;
+    Exit;
+  end;
+end;
+
 procedure TfrmAddComputer.CloseTypeMenu();
 begin
- if pnlTypeMenu.Visible then pnlTypeMenu.Visible := False;
+  if pnlTypeMenu.Visible then pnlTypeMenu.Visible := False;
 end;
 
 procedure TfrmAddComputer.FormShow(Sender: TObject);
@@ -115,6 +176,14 @@ begin
   SetLayeredWindowAttributes(Handle, frmAddComputer.Color, 255, LWA_COLORKEY);
   //Set clear edit boxes
   pnlTypeMenu.Visible := False;
+  //Set edits boxes
+  edtName.Caption := lsboxTypeMenu.Items[0];
+  edtAQName.Clear;
+  edtMark.Clear;
+  edtModel.Clear;
+  edtSN.Clear;
+  edtDescription.Clear;
+
 end;
 
 procedure TfrmAddComputer.lblCloseClick(Sender: TObject);
@@ -138,6 +207,16 @@ begin
   lblClose.Font.Color := clBlack;
 end;
 
+procedure TfrmAddComputer.lblType1MouseEnter(Sender: TObject);
+begin
+  shpBckButton1.Visible := True;
+end;
+
+procedure TfrmAddComputer.lblType1MouseLeave(Sender: TObject);
+begin
+  shpBckButton1.Visible := False;
+end;
+
 procedure TfrmAddComputer.lsboxTypeMenuClick(Sender: TObject);
 begin
   pnlTypeMenu.Visible := False;
@@ -145,35 +224,180 @@ begin
 end;
 
 procedure TfrmAddComputer.lsboxTypeMenuDrawItem(Control: TWinControl;
-  Index: Integer; ARect: TRect; State: TOwnerDrawState);
+  Index: integer; ARect: TRect; State: TOwnerDrawState);
 begin
   with (Control as TListBox).Canvas do
   begin
     if odSelected in State then Brush.Color := $00F9EEE0;
     Font.Color := clBlack;
     FillRect(ARect);
-    TextOut(ARect.Left + 5, ARect.Top + 2,  (Control as TListBox).Items[Index]);
+    TextOut(ARect.Left + 5, ARect.Top + 2, (Control as TListBox).Items[Index]);
   end;
 end;
 
 procedure TfrmAddComputer.lsboxTypeMenuMouseMove(Sender: TObject;
-  Shift: TShiftState; X, Y: Integer);
+  Shift: TShiftState; X, Y: integer);
 var
-  k: Integer;
+  k: integer;
 begin
-  k:= lsboxTypeMenu.ItemAtPos(Point(X,Y), true);
-  lsboxTypeMenu.ItemIndex:=k;
+  k := lsboxTypeMenu.ItemAtPos(Point(X, Y), True);
+  lsboxTypeMenu.ItemIndex := k;
 end;
 
 procedure TfrmAddComputer.edtNameDblClick(Sender: TObject);
 begin
- if pnlTypeMenu.Visible then pnlTypeMenu.Visible := False
+  if pnlTypeMenu.Visible then pnlTypeMenu.Visible := False
   else
   begin
     pnlTypeMenu.Visible := True;
     lsboxTypeMenu.ItemIndex := 0;
   end;
 end;
+
+procedure TfrmAddComputer.btnCancelClick(Sender: TObject);
+begin
+  if pnlTypeMenu.Visible then
+  begin
+    pnlTypeMenu.Visible := False;
+    Exit;
+  end;
+  Close();
+end;
+
+procedure TfrmAddComputer.btnSaveClick(Sender: TObject);
+begin
+  Save();
+end;
+
+procedure TfrmAddComputer.edtAQNameChange(Sender: TObject);
+begin
+  shpEditBck2.BorderColor := clSilver;
+end;
+
+procedure TfrmAddComputer.edtAQNameEnter(Sender: TObject);
+begin
+  CloseTypeMenu();
+  edtAQName.SetFocus;
+  shpEditBck2.Height := 28;
+  shpLineEdit4.Pen.Color := $00BA6900;
+  shpLineEdit5.Pen.Color := $00BA6900;
+end;
+
+procedure TfrmAddComputer.edtAQNameExit(Sender: TObject);
+begin
+  shpEditBck2.Height := 29;
+  shpLineEdit4.Pen.Color := $00969696;
+  shpLineEdit5.Pen.Color := $00969696;
+end;
+
+procedure TfrmAddComputer.edtAQNameKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  shpEditBck2.BorderColor := clSilver;
+  lblComputerExist.Visible := False;
+end;
+
+procedure TfrmAddComputer.edtMarkEnter(Sender: TObject);
+begin
+  CloseTypeMenu();
+  edtMark.SetFocus;
+  shpEditBck3.Height := 28;
+  shpLineEdit6.Pen.Color := $00BA6900;
+  shpLineEdit7.Pen.Color := $00BA6900;
+end;
+
+procedure TfrmAddComputer.edtMarkExit(Sender: TObject);
+begin
+  shpEditBck3.Height := 29;
+  shpLineEdit6.Pen.Color := $00969696;
+  shpLineEdit7.Pen.Color := $00969696;
+end;
+
+procedure TfrmAddComputer.edtMarkKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  shpEditBck3.BorderColor := clSilver;
+  lblComputerExist.Visible := False;
+end;
+
+procedure TfrmAddComputer.edtModelChange(Sender: TObject);
+begin
+  shpEditBck4.BorderColor := clSilver;
+end;
+
+procedure TfrmAddComputer.edtModelEnter(Sender: TObject);
+begin
+  CloseTypeMenu();
+  edtModel.SetFocus;
+  shpEditBck4.Height := 28;
+  shpLineEdit8.Pen.Color := $00BA6900;
+  shpLineEdit9.Pen.Color := $00BA6900;
+end;
+
+procedure TfrmAddComputer.edtSNChange(Sender: TObject);
+begin
+  shpEditBck5.BorderColor := clSilver;
+end;
+
+procedure TfrmAddComputer.edtModelExit(Sender: TObject);
+begin
+  shpEditBck4.Height := 29;
+  shpLineEdit8.Pen.Color := $00969696;
+  shpLineEdit9.Pen.Color := $00969696;
+end;
+
+procedure TfrmAddComputer.edtModelKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  shpEditBck4.BorderColor := clSilver;
+  lblComputerExist.Visible := False;
+end;
+
+procedure TfrmAddComputer.edtSNEnter(Sender: TObject);
+begin
+  CloseTypeMenu();
+  edtSN.SetFocus;
+  shpEditBck5.Height := 28;
+  shpLineEdit10.Pen.Color := $00BA6900;
+  shpLineEdit11.Pen.Color := $00BA6900;
+end;
+
+procedure TfrmAddComputer.edtSNExit(Sender: TObject);
+begin
+  shpEditBck5.Height := 29;
+  shpLineEdit10.Pen.Color := $00969696;
+  shpLineEdit11.Pen.Color := $00969696;
+end;
+
+procedure TfrmAddComputer.edtSNKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  shpEditBck5.BorderColor := clSilver;
+  lblComputerExist.Visible := False;
+end;
+
+procedure TfrmAddComputer.edtDescriptionEnter(Sender: TObject);
+begin
+  CloseTypeMenu();
+  edtDescription.SetFocus;
+  shpEditBck6.Height := shpEditBck6.Height - 1;
+  shpLineEdit12.Pen.Color := $00BA6900;
+  shpLineEdit13.Pen.Color := $00BA6900;
+end;
+
+procedure TfrmAddComputer.edtDescriptionExit(Sender: TObject);
+begin
+  shpEditBck6.Height := shpEditBck6.Height + 1;
+  shpLineEdit12.Pen.Color := $00969696;
+  shpLineEdit13.Pen.Color := $00969696;
+end;
+
+procedure TfrmAddComputer.edtMarkChange(Sender: TObject);
+begin
+  shpEditBck3.BorderColor := clSilver;
+end;
+
+
 
 procedure TfrmAddComputer.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin

@@ -34,7 +34,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="55"/>
         <CursorPos X="12" Y="9"/>
-        <UsageCount Value="198"/>
+        <UsageCount Value="200"/>
       </Unit>
       <Unit>
         <Filename Value="data.pas"/>
@@ -46,7 +46,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos X="30" Y="31"/>
-        <UsageCount Value="183"/>
+        <UsageCount Value="187"/>
       </Unit>
       <Unit>
         <Filename Value="users.pas"/>
@@ -55,9 +55,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="329"/>
-        <CursorPos X="3" Y="335"/>
-        <UsageCount Value="177"/>
+        <TopLine Value="390"/>
+        <CursorPos X="3" Y="394"/>
+        <UsageCount Value="181"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -67,10 +67,11 @@
         <ComponentName Value="frmAddUser"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="226"/>
-        <CursorPos X="3" Y="253"/>
-        <UsageCount Value="115"/>
+        <TopLine Value="115"/>
+        <CursorPos X="7" Y="139"/>
+        <UsageCount Value="119"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -81,9 +82,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="22"/>
-        <CursorPos X="45" Y="31"/>
-        <UsageCount Value="111"/>
+        <TopLine Value="23"/>
+        <CursorPos X="92" Y="45"/>
+        <UsageCount Value="115"/>
       </Unit>
       <Unit>
         <Filename Value="del_user_error.pas"/>
@@ -94,7 +95,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="42"/>
         <CursorPos Y="46"/>
-        <UsageCount Value="67"/>
+        <UsageCount Value="71"/>
       </Unit>
       <Unit>
         <Filename Value="edit_user.pas"/>
@@ -102,10 +103,12 @@
         <ComponentName Value="frmEditUser"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="260"/>
-        <CursorPos X="42" Y="267"/>
-        <UsageCount Value="61"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="235"/>
+        <CursorPos X="39" Y="237"/>
+        <UsageCount Value="65"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="del_user.pas"/>
@@ -114,9 +117,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="37"/>
+        <TopLine Value="35"/>
         <CursorPos X="31" Y="62"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="56"/>
       </Unit>
       <Unit>
         <Filename Value="computers.pas"/>
@@ -124,10 +127,10 @@
         <ComponentName Value="frmComputers"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="93"/>
-        <CursorPos X="23" Y="95"/>
-        <UsageCount Value="44"/>
+        <CursorPos Y="119"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -137,11 +140,10 @@
         <ComponentName Value="frmAddComputer"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="120"/>
-        <CursorPos X="11" Y="122"/>
-        <UsageCount Value="26"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="323"/>
+        <CursorPos X="14" Y="339"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -323,9 +325,9 @@
         <Filename Value="E:\Lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1802"/>
-        <CursorPos X="30" Y="1818"/>
-        <UsageCount Value="8"/>
+        <TopLine Value="1800"/>
+        <CursorPos X="23" Y="1819"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="E:\Lazarus\lcl\include\customform.inc"/>
@@ -377,127 +379,135 @@
         <CursorPos Y="153"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="E:\Lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1083"/>
+        <CursorPos X="14" Y="1089"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="103" Column="22" TopLine="73"/>
+        <Caret Line="213" Column="23" TopLine="201"/>
       </Position>
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="93" Column="82" TopLine="73"/>
+        <Caret Line="103" Column="30" TopLine="121"/>
       </Position>
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="94" Column="82" TopLine="74"/>
+        <Caret Line="213" Column="7" TopLine="206"/>
       </Position>
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="93" Column="82" TopLine="73"/>
+        <Caret Line="284" Column="25" TopLine="267"/>
       </Position>
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="94" Column="82" TopLine="77"/>
+        <Caret Line="265" Column="5" TopLine="258"/>
       </Position>
       <Position>
         <Filename Value="add_user.pas"/>
-        <Caret Line="116" Column="16" TopLine="91"/>
+        <Caret Line="116" Column="36" TopLine="79"/>
       </Position>
       <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="109" Column="25" TopLine="78"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="116" Column="21" TopLine="89"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="93" Column="19" TopLine="68"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="109" Column="53" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="104" Column="30" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="116" Column="5" TopLine="83"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="77" Column="19" TopLine="77"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="121" Column="29" TopLine="99"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="9" Column="28"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="128" Column="5" TopLine="108"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="114" Column="5" TopLine="96"/>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="140" Column="11" TopLine="124"/>
       </Position>
       <Position>
         <Filename Value="users.pas"/>
-        <Caret Line="380" Column="44" TopLine="80"/>
-      </Position>
-      <Position>
-        <Filename Value="computers.pas"/>
-        <Caret Line="225" Column="9" TopLine="207"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="129" Column="3" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="143" Column="143" TopLine="133"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="158" Column="5" TopLine="133"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="73" Column="70" TopLine="58"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="151" Column="30" TopLine="132"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="147" Column="20" TopLine="132"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="145" Column="6" TopLine="132"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="151" Column="6" TopLine="138"/>
+        <Caret Line="335" TopLine="329"/>
       </Position>
       <Position>
         <Filename Value="add_user.pas"/>
-        <Caret Line="56" Column="62" TopLine="81"/>
+        <Caret Line="181" Column="8" TopLine="178"/>
       </Position>
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="124" Column="34" TopLine="119"/>
+        <Caret Line="137" TopLine="125"/>
       </Position>
       <Position>
         <Filename Value="add_computer.pas"/>
-        <Caret Line="138" Column="35" TopLine="125"/>
+        <Caret Line="138" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="computers.pas"/>
+        <Caret Line="95" TopLine="93"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="100" Column="6" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="260" Column="8" TopLine="257"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="285" Column="19" TopLine="259"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="310" Column="19" TopLine="294"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="334" Column="19" TopLine="308"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="363" Column="19" TopLine="343"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="272" Column="40" TopLine="258"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="391" Column="14" TopLine="369"/>
+      </Position>
+      <Position>
+        <Filename Value="add_computer.pas"/>
+        <Caret Line="325" Column="14" TopLine="323"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="189" Column="3" TopLine="189"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="187" Column="3" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="194" Column="3" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="187" Column="39" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="add_user.pas"/>
+        <Caret Line="203" Column="3" TopLine="186"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_user.pas"/>
+        <Caret Line="267" Column="42" TopLine="258"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_user.pas"/>
+        <Caret Line="293" Column="3" TopLine="259"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_user.pas"/>
+        <Caret Line="275" Column="39" TopLine="259"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_user.pas"/>
+        <Caret Line="246" Column="3" TopLine="246"/>
       </Position>
     </JumpHistory>
     <RunParams>

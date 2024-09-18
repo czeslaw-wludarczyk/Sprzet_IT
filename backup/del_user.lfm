@@ -1,5 +1,5 @@
 inherited frmDelUser: TfrmDelUser
-  Left = 659
+  Left = 645
   Top = 413
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow

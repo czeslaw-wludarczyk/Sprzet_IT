@@ -51,12 +51,14 @@ type
     shpLineEdit7: TShape;
     procedure btnSaveClick(Sender: TObject);
     procedure chbActiveChange(Sender: TObject);
+    procedure edtNameChange(Sender: TObject);
     procedure edtNameEnter(Sender: TObject);
     procedure edtNameExit(Sender: TObject);
     procedure edtNameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure edtNumberEnter(Sender: TObject);
     procedure edtNumberExit(Sender: TObject);
     procedure edtNumberKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure edtSurnameChange(Sender: TObject);
     procedure edtSurnameEnter(Sender: TObject);
     procedure edtSurnameExit(Sender: TObject);
     procedure edtSurnameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -230,6 +232,11 @@ begin
   lblUserExist.Visible := False;
 end;
 
+procedure TfrmEditUser.edtNameChange(Sender: TObject);
+begin
+  shpEditBck1.BorderColor := clSilver;
+end;
+
 procedure TfrmEditUser.edtNameExit(Sender: TObject);
 begin
   shpEditBck1.Height := 29;
@@ -267,6 +274,11 @@ begin
   if Key = VK_RETURN then Key := VK_TAB;
   shpEditBck3.BorderColor := clSilver;
   lblUserExist.Visible := False;
+end;
+
+procedure TfrmEditUser.edtSurnameChange(Sender: TObject);
+begin
+  shpEditBck2.BorderColor := clSilver;
 end;
 
 procedure TfrmEditUser.edtSurnameEnter(Sender: TObject);

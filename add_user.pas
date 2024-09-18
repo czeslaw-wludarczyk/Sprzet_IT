@@ -51,12 +51,14 @@ type
     shpLineEdit7: TShape;
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
+    procedure edtNameChange(Sender: TObject);
     procedure edtNameEnter(Sender: TObject);
     procedure edtNameExit(Sender: TObject);
     procedure edtNameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure edtNumberEnter(Sender: TObject);
     procedure edtNumberExit(Sender: TObject);
     procedure edtNumberKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure edtSurnameChange(Sender: TObject);
     procedure edtSurnameEnter(Sender: TObject);
     procedure edtSurnameExit(Sender: TObject);
     procedure edtSurnameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -66,6 +68,7 @@ type
     procedure lblCloseMouseEnter(Sender: TObject);
     procedure lblCloseMouseLeave(Sender: TObject);
   private
+    procedure Save();
   public
   var
     added_item: string;
@@ -82,6 +85,61 @@ implementation
 uses shadow, Data;
 
   { TfrmAddUser }
+procedure TfrmAddUser.Save();
+var
+  status: integer;
+begin
+  if (edtName.Text <> '') and (edtSurname.Text <> '') then
+  begin
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'select first_name, last_name, customer_number, status from customers where first_name = :name'
+      +
+      ' and last_name = :surname';
+    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
+    DBModule.SQLQuery.Open;
+  end
+  else
+  begin
+    if (edtName.Text = '') or (edtName.Text = ' ') then shpEditBck1.BorderColor := clRed;
+    if (edtSurname.Text = '') or (edtSurname.Text = ' ') then
+      shpEditBck2.BorderColor := clRed;
+    Exit;
+  end;
+
+  if DBModule.SQLQuery.RecordCount > 0 then
+  begin
+    lblUserExist.Visible := True;
+    Exit;
+  end;
+
+  //Insert data to database
+  if chbActive.Checked then status := 1
+  else
+    status := 0;
+
+  try
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'insert into customers (first_name, last_name, full_name, customer_number, status)VALUES(:name '
+      +
+      ',:surname, :fullname, :number, :status)';
+    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
+    DBModule.SQLQuery.ParamByName('fullname').AsString := edtname.Text + ' ' + edtSurname.Text;
+    if edtNumber.Text <> '' then
+      DBModule.SQLQuery.Params.ParamByName('number').AsString := edtNumber.Text
+    else
+      DBModule.SQLQuery.Params.ParamByName('number').Clear;
+    DBModule.SQLQuery.Params.ParamByName('status').AsInteger := status;
+    DBModule.SQLQuery.ExecSQL;
+    added_item := edtName.Text + ' ' + edtSurname.Text;
+  except
+  end;
+  //Close Form
+  Close();
+end;
 
 procedure TfrmAddUser.FormShow(Sender: TObject);
 begin
@@ -120,60 +178,13 @@ begin
 end;
 
 procedure TfrmAddUser.btnSaveClick(Sender: TObject);
-var
-  status: integer;
 begin
-  if (edtName.Text <> '') and (edtSurname.Text <> '') then
-  begin
-    DBModule.SQLQuery.Close;
-    DBModule.SQLQuery.SQL.Text :=
-      'select first_name, last_name, customer_number, status from customers where first_name = :name'
-      +
-      ' and last_name = :surname';
-    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
-    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
-    DBModule.SQLQuery.Open;
-  end
-  else
-  begin
-    if (edtName.Text = '') or (edtName.Text = '') then shpEditBck1.BorderColor := clRed;
-    if (edtSurname.Text = '') or (edtSurname.Text = '') then
-      shpEditBck2.BorderColor := clRed;
-    Exit;
-  end;
+  Save();
+end;
 
-  if DBModule.SQLQuery.RecordCount > 0 then
-  begin
-    lblUserExist.Visible := True;
-    Exit;
-  end;
-
-  //Insert data to database
-  if chbActive.Checked then status := 1
-  else
-    status := 0;
-
-  try
-    DBModule.SQLQuery.Close;
-    DBModule.SQLQuery.SQL.Text :=
-      'insert into customers (first_name, last_name, full_name, customer_number, status)VALUES(:name '
-      +
-      ',:surname, :fullname, :number, :status)';
-    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
-    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
-    DBModule.SQLQuery.ParamByName('fullname').AsString := edtname.Text + ' ' + edtSurname.Text;
-    if edtNumber.Text <> '' then
-      DBModule.SQLQuery.Params.ParamByName('number').AsString := edtNumber.Text
-    else
-      DBModule.SQLQuery.Params.ParamByName('number').Clear;
-    DBModule.SQLQuery.Params.ParamByName('status').AsInteger := status;
-    DBModule.SQLQuery.ExecSQL;
-    added_item := edtName.Text + ' ' + edtSurname.Text;
-  except
-  end;
-
-  //Close Form
-  Close();
+procedure TfrmAddUser.edtNameChange(Sender: TObject);
+begin
+  shpEditBck1.BorderColor := clSilver;
 end;
 
 procedure TfrmAddUser.edtNameKeyDown(Sender: TObject; var Key: word;
@@ -218,6 +229,11 @@ begin
   if Key = VK_RETURN then Key := VK_TAB;
   shpEditBck3.BorderColor := clSilver;
   lblUserExist.Visible := False;
+end;
+
+procedure TfrmAddUser.edtSurnameChange(Sender: TObject);
+begin
+  shpEditBck2.BorderColor := clSilver;
 end;
 
 procedure TfrmAddUser.edtSurnameEnter(Sender: TObject);

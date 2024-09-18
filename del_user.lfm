@@ -1,6 +1,10 @@
 inherited frmDelUser: TfrmDelUser
   Left = 645
   Top = 413
+  Font.CharSet = EASTEUROPE_CHARSET
+  Font.Height = -13
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   inherited lblClose: TLabel
@@ -18,8 +22,9 @@ inherited frmDelUser: TfrmDelUser
     ModalResult = 2
   end
   inherited lblDeleteInfo: TLabel
-    Left = 114
-    Width = 207
+    Left = 108
+    Height = 17
+    Width = 225
     Caption = 'Na pewno chcesz usunąć użytkownika?'
   end
 end

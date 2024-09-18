@@ -564,7 +564,7 @@ object frmEditUser: TfrmEditUser
   object lblUserExist: TLabel
     Left = 113
     Height = 17
-    Top = 307
+    Top = 304
     Width = 132
     Caption = 'Użytkownik już istnieje!'
     Font.CharSet = EASTEUROPE_CHARSET

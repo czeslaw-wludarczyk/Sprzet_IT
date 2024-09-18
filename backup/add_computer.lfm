@@ -121,6 +121,7 @@ object frmAddComputer: TfrmAddComputer
     Caption = 'Zapisz'
     Default = True
     TabOrder = 0
+    OnClick = btnSaveClick
   end
   object btnCancel: TButton
     Left = 322
@@ -130,6 +131,7 @@ object frmAddComputer: TfrmAddComputer
     Anchors = [akRight, akBottom]
     Caption = 'Anuluj'
     TabOrder = 1
+    OnClick = btnCancelClick
   end
   object lblComputerTitle: TLabel
     Left = 8
@@ -249,13 +251,14 @@ object frmAddComputer: TfrmAddComputer
     Font.Quality = fqDraft
     Layout = tlCenter
     ParentFont = False
+    OnClick = lblCloseClick
     OnMouseEnter = lblCloseMouseEnter
     OnMouseLeave = lblCloseMouseLeave
   end
   object pnlEditType: TPanel
     Left = 120
     Height = 30
-    Top = 60
+    Top = 62
     Width = 184
     BevelOuter = bvNone
     ClientHeight = 30
@@ -326,30 +329,59 @@ object frmAddComputer: TfrmAddComputer
       BorderSpacing.Right = 3
       Pen.Color = 9868950
     end
+    object shpBckButton1: TBGRAShape
+      Left = 158
+      Height = 20
+      Top = 5
+      Width = 21
+      Angle = 45
+      BorderWidth = 0
+      BorderColor = clWindowText
+      BorderGradient.StartColor = clWhite
+      BorderGradient.EndColor = clBlack
+      BorderGradient.GradientType = gtLinear
+      BorderGradient.Point1XPercent = 0
+      BorderGradient.Point1YPercent = 0
+      BorderGradient.Point2XPercent = 100
+      BorderGradient.Point2YPercent = 100
+      FillColor = 16379616
+      FillOpacity = 255
+      FillGradient.StartColor = clWhite
+      FillGradient.EndColor = clBlack
+      FillGradient.GradientType = gtLinear
+      FillGradient.Point1XPercent = 0
+      FillGradient.Point1YPercent = 0
+      FillGradient.Point2XPercent = 0
+      FillGradient.Point2YPercent = 100
+      RoundRadius = 2
+      Visible = False
+    end
     object lblType1: TLabel
-      Left = 160
-      Height = 17
-      Top = 6
-      Width = 16
+      Left = 158
+      Height = 20
+      Top = 5
+      Width = 21
       Alignment = taCenter
       AutoSize = False
-      Caption = 'Ú'
-      Font.CharSet = SYMBOL_CHARSET
+      Caption = ''
+      Font.CharSet = ANSI_CHARSET
       Font.Color = clGray
-      Font.Height = -15
-      Font.Name = 'Symbol'
+      Font.Height = -13
+      Font.Name = 'Segoe Fluent Icons'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       Layout = tlCenter
       ParentFont = False
       OnClick = edtNameDblClick
+      OnMouseEnter = lblType1MouseEnter
+      OnMouseLeave = lblType1MouseLeave
     end
   end
   object pnlEditName_AQ: TPanel
     Left = 120
     Height = 30
-    Top = 124
+    Top = 126
     Width = 340
     BevelOuter = bvNone
     ClientHeight = 30
@@ -361,7 +393,7 @@ object frmAddComputer: TfrmAddComputer
     object shpEditBck2: TBGRAShape
       Cursor = crIBeam
       Left = 0
-      Height = 28
+      Height = 29
       Top = 0
       Width = 339
       Align = alTop
@@ -386,18 +418,19 @@ object frmAddComputer: TfrmAddComputer
       BorderSpacing.Right = 1
       Caption = 'shpEditSearchBck'
       RoundRadius = 2
+      OnClick = edtAQNameEnter
     end
     object shpLineEdit4: TShape
       Left = 5
       Height = 1
-      Top = 29
+      Top = 30
       Width = 330
       Align = alTop
       BorderSpacing.Left = 5
       BorderSpacing.Right = 5
       Pen.Color = clSilver
     end
-    object edtSurname: TEdit
+    object edtAQName: TEdit
       Left = 6
       Height = 17
       Top = 6
@@ -407,11 +440,15 @@ object frmAddComputer: TfrmAddComputer
       BorderStyle = bsNone
       MaxLength = 20
       TabOrder = 0
+      OnChange = edtAQNameChange
+      OnEnter = edtAQNameEnter
+      OnExit = edtAQNameExit
+      OnKeyDown = edtAQNameKeyDown
     end
     object shpLineEdit5: TShape
       Left = 3
       Height = 1
-      Top = 28
+      Top = 29
       Width = 334
       Align = alTop
       BorderSpacing.Left = 3
@@ -422,7 +459,7 @@ object frmAddComputer: TfrmAddComputer
   object pnlEditMark: TPanel
     Left = 120
     Height = 30
-    Top = 190
+    Top = 191
     Width = 340
     BevelOuter = bvNone
     ClientHeight = 30
@@ -434,7 +471,7 @@ object frmAddComputer: TfrmAddComputer
     object shpEditBck3: TBGRAShape
       Cursor = crIBeam
       Left = 0
-      Height = 28
+      Height = 29
       Top = 0
       Width = 339
       Align = alTop
@@ -459,18 +496,19 @@ object frmAddComputer: TfrmAddComputer
       BorderSpacing.Right = 1
       Caption = 'shpEditSearchBck'
       RoundRadius = 2
+      OnClick = edtMarkEnter
     end
     object shpLineEdit6: TShape
       Left = 5
       Height = 1
-      Top = 29
+      Top = 30
       Width = 330
       Align = alTop
       BorderSpacing.Left = 5
       BorderSpacing.Right = 5
       Pen.Color = clSilver
     end
-    object edtNumber: TEdit
+    object edtMark: TEdit
       Left = 6
       Height = 17
       Top = 6
@@ -480,11 +518,15 @@ object frmAddComputer: TfrmAddComputer
       BorderStyle = bsNone
       MaxLength = 30
       TabOrder = 0
+      OnChange = edtMarkChange
+      OnEnter = edtMarkEnter
+      OnExit = edtMarkExit
+      OnKeyDown = edtMarkKeyDown
     end
     object shpLineEdit7: TShape
       Left = 3
       Height = 1
-      Top = 28
+      Top = 29
       Width = 334
       Align = alTop
       BorderSpacing.Left = 3
@@ -495,7 +537,7 @@ object frmAddComputer: TfrmAddComputer
   object Label1: TLabel
     Left = 105
     Height = 17
-    Top = 63
+    Top = 62
     Width = 5
     Caption = '*'
     Font.CharSet = EASTEUROPE_CHARSET
@@ -510,7 +552,7 @@ object frmAddComputer: TfrmAddComputer
   object Label2: TLabel
     Left = 105
     Height = 17
-    Top = 127
+    Top = 126
     Width = 5
     Caption = '*'
     Font.CharSet = EASTEUROPE_CHARSET
@@ -581,7 +623,7 @@ object frmAddComputer: TfrmAddComputer
   object pnlEditModel: TPanel
     Left = 120
     Height = 30
-    Top = 260
+    Top = 261
     Width = 340
     BevelOuter = bvNone
     ClientHeight = 30
@@ -593,7 +635,7 @@ object frmAddComputer: TfrmAddComputer
     object shpEditBck4: TBGRAShape
       Cursor = crIBeam
       Left = 0
-      Height = 28
+      Height = 29
       Top = 0
       Width = 339
       Align = alTop
@@ -618,18 +660,19 @@ object frmAddComputer: TfrmAddComputer
       BorderSpacing.Right = 1
       Caption = 'shpEditSearchBck'
       RoundRadius = 2
+      OnClick = edtModelEnter
     end
     object shpLineEdit8: TShape
       Left = 5
       Height = 1
-      Top = 29
+      Top = 30
       Width = 330
       Align = alTop
       BorderSpacing.Left = 5
       BorderSpacing.Right = 5
       Pen.Color = clSilver
     end
-    object edtNumber1: TEdit
+    object edtModel: TEdit
       Left = 6
       Height = 17
       Top = 6
@@ -639,11 +682,15 @@ object frmAddComputer: TfrmAddComputer
       BorderStyle = bsNone
       MaxLength = 40
       TabOrder = 0
+      OnChange = edtModelChange
+      OnEnter = edtModelEnter
+      OnExit = edtModelExit
+      OnKeyDown = edtModelKeyDown
     end
     object shpLineEdit9: TShape
       Left = 3
       Height = 1
-      Top = 28
+      Top = 29
       Width = 334
       Align = alTop
       BorderSpacing.Left = 3
@@ -679,7 +726,7 @@ object frmAddComputer: TfrmAddComputer
     object shpEditBck5: TBGRAShape
       Cursor = crIBeam
       Left = 0
-      Height = 28
+      Height = 29
       Top = 0
       Width = 339
       Align = alTop
@@ -704,18 +751,19 @@ object frmAddComputer: TfrmAddComputer
       BorderSpacing.Right = 1
       Caption = 'shpEditSearchBck'
       RoundRadius = 2
+      OnClick = edtSNEnter
     end
     object shpLineEdit10: TShape
       Left = 5
       Height = 1
-      Top = 29
+      Top = 30
       Width = 330
       Align = alTop
       BorderSpacing.Left = 5
       BorderSpacing.Right = 5
       Pen.Color = clSilver
     end
-    object edtNumber2: TEdit
+    object edtSN: TEdit
       Left = 6
       Height = 17
       Top = 6
@@ -725,11 +773,14 @@ object frmAddComputer: TfrmAddComputer
       BorderStyle = bsNone
       MaxLength = 50
       TabOrder = 0
+      OnEnter = edtSNEnter
+      OnExit = edtSNExit
+      OnKeyDown = edtSNKeyDown
     end
     object shpLineEdit11: TShape
       Left = 3
       Height = 1
-      Top = 28
+      Top = 29
       Width = 334
       Align = alTop
       BorderSpacing.Left = 3
@@ -765,7 +816,7 @@ object frmAddComputer: TfrmAddComputer
     object shpEditBck6: TBGRAShape
       Cursor = crIBeam
       Left = 0
-      Height = 127
+      Height = 128
       Top = 0
       Width = 339
       Align = alTop
@@ -790,11 +841,12 @@ object frmAddComputer: TfrmAddComputer
       BorderSpacing.Right = 1
       Caption = 'shpEditSearchBck'
       RoundRadius = 2
+      OnClick = edtDescriptionEnter
     end
     object shpLineEdit12: TShape
       Left = 5
       Height = 1
-      Top = 128
+      Top = 129
       Width = 330
       Align = alTop
       BorderSpacing.Left = 5
@@ -804,21 +856,23 @@ object frmAddComputer: TfrmAddComputer
     object shpLineEdit13: TShape
       Left = 3
       Height = 1
-      Top = 127
+      Top = 128
       Width = 334
       Align = alTop
       BorderSpacing.Left = 3
       BorderSpacing.Right = 3
       Pen.Color = 9868950
     end
-    object Memo1: TMemo
+    object edtDescription: TMemo
       Left = 6
       Height = 112
-      Top = 8
+      Top = 6
       Width = 323
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderStyle = bsNone
       TabOrder = 0
+      OnEnter = edtDescriptionEnter
+      OnExit = edtDescriptionExit
     end
   end
   object lblDescription: TLabel
@@ -885,7 +939,7 @@ object frmAddComputer: TfrmAddComputer
       BorderStyle = bsNone
       IntegralHeight = True
       Items.Strings = (
-        'Komputer'
+        'Laptop'
         'PC'
         'NUC'
         'Tablet'
@@ -898,5 +952,50 @@ object frmAddComputer: TfrmAddComputer
       OnDrawItem = lsboxTypeMenuDrawItem
       OnMouseMove = lsboxTypeMenuMouseMove
     end
+  end
+  object Label3: TLabel
+    Left = 105
+    Height = 17
+    Top = 191
+    Width = 5
+    Caption = '*'
+    Font.CharSet = EASTEUROPE_CHARSET
+    Font.Color = clRed
+    Font.Height = -13
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    OnMouseDown = shpFormBckMouseDown
+  end
+  object Label6: TLabel
+    Left = 105
+    Height = 17
+    Top = 261
+    Width = 5
+    Caption = '*'
+    Font.CharSet = EASTEUROPE_CHARSET
+    Font.Color = clRed
+    Font.Height = -13
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    OnMouseDown = shpFormBckMouseDown
+  end
+  object Label7: TLabel
+    Left = 105
+    Height = 17
+    Top = 329
+    Width = 5
+    Caption = '*'
+    Font.CharSet = EASTEUROPE_CHARSET
+    Font.Color = clRed
+    Font.Height = -13
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    OnMouseDown = shpFormBckMouseDown
   end
 end
