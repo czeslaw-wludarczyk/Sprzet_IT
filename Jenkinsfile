@@ -2,13 +2,21 @@ pipeline {
     agent any
 
     parameters {
-        extendedChoice(
+        activeChoiceParam(
             name: 'ENVIRONMENT',
             description: 'Select the environment',
-            type: 'PT_SINGLE_SELECT',
-            groovyScript: '''
-                return ["Development", "Testing", "Staging", "Production"]
-            '''
+            choiceType: 'SINGLE_SELECT',
+            groovyScript: [
+                classpath: [],
+                fallbackScript: [
+                    script: 'return ["Could not fetch environments"]',
+                    sandbox: true
+                ],
+                script: [
+                    script: 'return ["Development", "Testing", "Staging", "Production"]',
+                    sandbox: true
+                ]
+            ]
         )
     }
 
