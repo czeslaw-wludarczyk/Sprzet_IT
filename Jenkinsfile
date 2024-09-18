@@ -2,21 +2,10 @@ pipeline {
     agent any
 
     parameters {
-        activeChoiceParam(
+        choice(
             name: 'ENVIRONMENT',
-            description: 'Select the environment',
-            choiceType: 'SINGLE_SELECT',
-            groovyScript: [
-                classpath: [],
-                fallbackScript: [
-                    script: 'return ["Could not fetch environments"]',
-                    sandbox: true
-                ],
-                script: [
-                    script: 'return ["Development", "Testing", "Staging", "Production"]',
-                    sandbox: true
-                ]
-            ]
+            choices: ['Development', 'Testing', 'Staging', 'Production'],
+            description: 'Select the environment'
         )
     }
 
