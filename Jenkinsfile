@@ -27,8 +27,7 @@ properties([
             referencedParameters: 'CLUSTER', 
             script: 
                 [$class: 'GroovyScript', 
-                    
-                script: [
+		fallbackScript: [
                         classpath: [], 
                         sandbox: false, 
                         script: '''
