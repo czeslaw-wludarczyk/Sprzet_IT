@@ -21,7 +21,7 @@ properties([
             ]
         ],
   [$class: 'CascadeChoiceParameter', 
-            choiceType: 'PT_RADIO', 
+            choiceType: 'PT_CHECKBOX', 
             description: 'select name space ',
             name: 'NAMESPACE', 
             referencedParameters: 'CLUSTER', 
