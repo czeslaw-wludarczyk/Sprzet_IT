@@ -1,104 +1,70 @@
-def JOB_NAME = currentBuild.projectName.toLowerCase()
-def subTypeScript = getSubTypeScript(JOB_NAME)
-
 properties([
-   parameters([
-      [
-         $class: 'ChoiceParameter',
-         choiceType: 'PT_SINGLE_SELECT',
-         description: "Select which type",
-         filterLength: 1,
-         filterable: false, 
-         name: 'TYPE', 
-         script: [
-            $class: 'GroovyScript', 
-            fallbackScript: [
-               classpath: [], 
-               sandbox: true,
-               script: "return['']"
-            ], 
-            script: [
-               classpath: [], 
-               sandbox: true,
-               script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
+    parameters([
+        [$class: 'ChoiceParameter', 
+            choiceType: 'PT_RADIO',
+            description: 'Select a cluster',
+            filterLength: 1,
+            filterable: true,
+            name: 'CLUSTER',
+            script: [$class: 'GroovyScript',
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: true, 
+                    script: 'return ["ERROR"]'
+                ],
+                script: [
+                    classpath: [], 
+                    sandbox: true, 
+                    script: 
+       "return['PROD','DEV', 'QA']"
+                ]
             ]
-         ]
-      ],
-      [
-         $class: 'CascadeChoiceParameter',
-         choiceType: 'PT_SINGLE_SELECT', 
-         description: 'Select which sub type',
-         name: 'SUB_TYPE', 
-         referencedParameters: 'TYPE',
-         script: [
-            $class: 'GroovyScript', 
-            fallbackScript: [
-               classpath: [], 
-               sandbox: true, 
-               script: "return['Select which type']"
-            ], 
-            script: [
-               classpath: [], 
-               sandbox: true,
-               script: "$subTypeScript"
-            ] 
-         ]
-      ]
-   ])
+        ],
+  [$class: 'CascadeChoiceParameter', 
+            choiceType: 'PT_RADIO', 
+            description: 'select name space ',
+            name: 'NAMESPACE', 
+            referencedParameters: 'CLUSTER', 
+            script: 
+                [$class: 'GroovyScript', 
+                    
+                script: [
+                        classpath: [], 
+                        sandbox: false, 
+                        script: '''
+                        if (CLUSTER.equals("PROD")){
+                            return['PROD-EAST', 'PROD-WEST']
+                        }
+                        else if (CLUSTER.equals("DEV")) {
+                            return['DEV-EAST', 'DEV-WEST']
+                        } 
+                        else if (CLUSTER.equals("QA")){
+                            return['QA-EAST', 'QA-WEST']
+                        }              
+
+                        '''
+                        ] 
+                ]
+            ]
+    ])
 ])
 
 pipeline {
-    agent any
-    stages {
-       stage ('BUILD') {
-          steps {
-             script {
-                println "BUILD here"
-             }
-          }
-       }
-       stage ('TEST') {
-          steps {
+   agent any  
+   stages {
+
+      stage('Printing selected choice') {
+
+         steps {
               script {
-                 println "Testing here"
+
+            println CLUSTER
+            println NAMESPACE
+
+
               }
-          }
-       }
-       stage('DEPLOY') {
-          steps {
-             script {
-                println "Deployment here"
-             }
-          }
-       }
-    }
-}
+         }
+      }
 
-def getSubTypeScript(JOB_NAME) {
-    
-   def jsonFile = "/var/jenkins_home/workspace/${JOB_NAME}.json"
-   def LOADING_JSON_SCRIPTS = """      
-      import groovy.json.JsonSlurper
-      def jsonContent = "cat $jsonFile".execute()
-      def mapsFromJSON = new JsonSlurper().parseText(jsonContent.text)
-   """
-
-   def PARAM_SCRIPTS = '''
-        if (TYPE.equals('TYPE1')) {
-            return getSubTypes(mapsFromJSON, "TYPE1")
-        } else if (TYPE.equals('TYPE2')) {
-            return getSubTypes(mapsFromJSON, "TYPE2")
-        } else if (TYPE.equals('TYPE3')) {
-            return getSubTypes(mapsFromJSON, "TYPE3")
-        } else if (TYPE.equals('TYPE4')) {
-            return getSubTypes(mapsFromJSON, "TYPE4")
-        }
-        
-        def getSubTypes(mapsFromJson, type) {
-            def paramList = []
-            // ... logic here to finalize the choices.
-            return paramList
-        }
-   '''
-   return "${LOADING_JSON_SCRIPTS}\n${PARAM_SCRIPTS}"
+   }
 }
