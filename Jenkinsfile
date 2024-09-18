@@ -29,8 +29,15 @@ properties([
                 [$class: 'GroovyScript', 
 		fallbackScript: [
                         classpath: [], 
-                        sandbox: false, 
-                        script: '''
+                        sandbox: true, 
+                        script: 'return ["ERROR"]'
+], 
+		script: [
+                    classpath: [], 
+                    sandbox: true, 
+                    script: 
+
+			"
                         if (CLUSTER.equals("PROD")){
                             return['PROD-EAST', 'PROD-WEST']
                         }
@@ -41,7 +48,7 @@ properties([
                             return['QA-EAST', 'QA-WEST']
                         }              
 
-                        '''
+                        "
                         ] 
                 ]
             ]
