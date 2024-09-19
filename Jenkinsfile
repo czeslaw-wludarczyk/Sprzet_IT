@@ -16,7 +16,7 @@ pipeline {
                                         $class: 'GroovyScript', 
                                         fallbackScript: [
                                             classpath: [], 
-                                            sandbox: false, 
+                                            sandbox: true, 
                                             script: 
                                                 "return['Could not get The environemnts']"
                                         ], 
