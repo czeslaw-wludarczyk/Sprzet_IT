@@ -1,36 +1,38 @@
 properties([
-            [
-            $class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
-            parameters
-            (
-                [
-                    choice(choices: ['opt1', 'opt2', 'opt3'], description: 'desc', name: 'bla'),
-                    choice(choices: script{return_list()}, description: 'some letter', name: 'ble')
-                ]
-        )
-    ]
- )
+  parameters([
+    [
+      $class: 'ChoiceParameter',
+      choiceType: 'PT_SINGLE_SELECT',
+      name: 'Environment',
+      script: [
+        $class: 'ScriptlerScript',
+        scriptlerScriptId:'Environments.groovy'
+      ]
+    ],
+    [
+      $class: 'CascadeChoiceParameter',
+      choiceType: 'PT_SINGLE_SELECT',
+      name: 'Host',
+      referencedParameters: 'Environment',
+      script: [
+        $class: 'ScriptlerScript',
+        scriptlerScriptId:'HostsInEnv.groovy',
+        parameters: [
+          [name:'Environment', value: '$Environment']
+        ]
+      ]
+   ]
+ ])
+])
 
 pipeline {
-    agent{
-        label "Linux"
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        echo "${params.Environment}"
+        echo "${params.Host}"
+      }
     }
-
-    stages{
-        stage("frist"){
-            steps{
-                echo "${params.bla}"
-                echo "${params.ble}"
-            }
-        }
-    }
-}
-
-def return_list(){
-    if ("${JOB_NAME}".contains("bla")){
-        env.list_users = "1\n 2\n 3\n"
-    }else{
-        env.list_users = "a\n b\n c\n"
-    }
-    return env.list_users
+  }
 }
