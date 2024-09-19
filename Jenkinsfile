@@ -8,21 +8,7 @@ roperties([
         $class: 'ScriptlerScript',
         scriptlerScriptId:'Environments.groovy'
       ]
-    ],
-    [
-      $class: 'CascadeChoiceParameter',
-      choiceType: 'PT_SINGLE_SELECT',
-      name: 'Host',
-      referencedParameters: 'Environment',
-      script: [
-        $class: 'ScriptlerScript',
-        scriptlerScriptId:'HostsInEnv.groovy',
-        parameters: [
-          [name:'Environment', value: '$Environment']
-        ]
-      ]
-   ]
- ])
+    ])
 ])
 
 pipeline {
