@@ -42,8 +42,8 @@ properties([
                                             classpath: [], 
                                             sandbox: false, 
                                             script: '''
-                                                if (Agent.equals ("DELPHI")) {return [\"Win32\", \"Win64\", "iOS"]}
-                                                if (Agent.equals ('QT6')) {return ['Win32',\'Win64\','iOS','Android']}
+                                                if (Agent.equals ("DELPHI")) {return [\'Win32:selected\', \'Win64:selected\', "iOS"]}
+                                                if (Agent.equals ('QT6')) {return ['Win32',\'Win64:selected\','iOS','Android']}
                                                 '''
                                         ]
                                     ]
