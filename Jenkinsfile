@@ -24,8 +24,8 @@ properties([
                                 ],
 
                              [$class: 'CascadeChoiceParameter', 
-                                    choiceType: 'PT_RADIO', 
-                                    description: 'Wybierz platformę na której ma zbudować się projekt:', 
+                                    choiceType: 'PT_CHECKBOX', 
+                                    description: 'Wybierz platforme na ktorej ma zbudowac sie projekt:', 
                                     filterLength: 1, 
                                     filterable: false, 
                                     name: 'Platform', 
@@ -42,8 +42,8 @@ properties([
                                             classpath: [], 
                                             sandbox: false, 
                                             script: '''
-                                                if (Agent.equals ("DELPHI")) {return [\'Win32:selected\', "Win64", "iOS"]}
-                                                if (Agent.equals ('QT6')) {return ['Win32','Win64','iOS','Android']}
+                                                if (Agent.equals ("DELPHI")) {return [\"Win32\", \"Win64\", "iOS"]}
+                                                if (Agent.equals ('QT6')) {return ['Win32',\'Win64\','iOS','Android']}
                                                 '''
                                         ]
                                     ]
