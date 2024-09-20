@@ -41,7 +41,8 @@ properties([
                                             classpath: [], 
                                             sandbox: false, 
                                             script: 
-                                                "return['Win32','Win64','iOS','Android']"
+                                                if (Agent == "Delphi") {return ["Win32", "Win64", "iOS"]}
+                                                if (Agent == 'QT6') {return ['Win32','Win64','iOS','Android']}
                                         ]
                                     ]
                                 ]
