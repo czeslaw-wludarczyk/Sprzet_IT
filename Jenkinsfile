@@ -2,7 +2,7 @@ properties([
                             parameters([
                                 [$class: 'ChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
-                                    description: 'Select the Environemnt from the Dropdown List', 
+                                    description: 'Wybierz Agenta do budowania zadania:', 
                                     filterLength: 1, 
                                     filterable: false, 
                                     name: 'Agent', 
@@ -25,7 +25,7 @@ properties([
 
                              [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_RADIO', 
-                                    description: 'Select the Environemnt from the Dropdown List', 
+                                    description: 'Wybierz platformę na której ma zbudować się projekt:', 
                                     filterLength: 1, 
                                     filterable: false, 
                                     name: 'Platform', 
