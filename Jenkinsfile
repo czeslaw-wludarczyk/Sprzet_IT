@@ -42,7 +42,7 @@ properties([
                                             classpath: [], 
                                             sandbox: false, 
                                             script: '''
-                                                if (Agent.equals ("Delphi")) {return ["Win32", "Win64", "iOS"]}
+                                                if (Agent.equals ("DELPHI")) {return ["Win32", "Win64", "iOS"]}
                                                 if (Agent.equals ('QT6')) {return ['Win32','Win64','iOS','Android']}
                                                 '''
                                         ]
