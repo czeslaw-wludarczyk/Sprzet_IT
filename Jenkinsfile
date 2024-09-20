@@ -27,10 +27,22 @@ properties([
 
 pipeline {
     agent any
-        stages {
-            stage('Parameters'){
-                steps {
-                }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo ${'Env'}
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
