@@ -24,11 +24,12 @@ properties([
                                 ],
 
                              [$class: 'CascadeChoiceParameter', 
-                                    choiceType: 'PT_SINGLE_SELECT', 
+                                    choiceType: 'PT_RADIO', 
                                     description: 'Select the Environemnt from the Dropdown List', 
                                     filterLength: 1, 
                                     filterable: false, 
                                     name: 'Platform', 
+                                    referencedParameters: 'Agent',
                                     script: [
                                         $class: 'GroovyScript', 
                                         fallbackScript: [
@@ -40,9 +41,10 @@ properties([
                                         script: [
                                             classpath: [], 
                                             sandbox: false, 
-                                            script: 
-                                                if (Agent == "Delphi") {return ["Win32", "Win64", "iOS"]}
-                                                if (Agent == 'QT6') {return ['Win32','Win64','iOS','Android']}
+                                            script: '''
+                                                if (Agent.equals ("Delphi")) {return ["Win32", "Win64", "iOS"]}
+                                                if (Agent.equals ('QT6')) {return ['Win32','Win64','iOS','Android']}
+                                                '''
                                         ]
                                     ]
                                 ]
