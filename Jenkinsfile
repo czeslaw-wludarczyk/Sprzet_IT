@@ -31,7 +31,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo ${'Env'}
+                echo "${params.Env}"
             }
         }
         stage('Test') {
