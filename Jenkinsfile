@@ -43,7 +43,10 @@ properties([
                                             sandbox: false, 
                                             script: '''
                                                 if (Agent.equals ("DELPHI")) {return [\'Win32:selected\', \'Win64:selected\', "iOS"]}
-                                                if (Agent.equals ('QT6')) {return ['Win32',\'Win64:selected\','iOS','Android']}
+                                                if (Agent.equals ('QT6')) {return ['Win32:selected\',\'Win64:selected\','iOS','Android']}
+                                                if (Agent.equals ('QT5')) {return [\'Win32:selected\',\'Win64:selected\','iOS','Android']}
+                                                if (Agent.equals ('C#')) {return ['Win32',\'Win64:selected\']}
+                                                 if (Agent.equals ('ANDROID')) {return [\'Android:selected\']}
                                                 '''
                                         ]
                                     ]
