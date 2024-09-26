@@ -72,6 +72,7 @@ pipeline {
                     echo "Job Description: ${jobDescription}"
             }
         }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
