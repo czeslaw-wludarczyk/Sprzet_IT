@@ -9,7 +9,7 @@ properties([
 				                        background-color: #333333;
                                         text-align: center;
                                         padding: 4px;
-                                        color: #000000;
+                                        color: #ffffff;
                                         font-size: 12px;
                                         text-transform: uppercase;
                                         letter-spacing: 1px;
@@ -73,7 +73,7 @@ properties([
 				                        background-color: #333333;
                                         text-align: center;
                                         padding: 4px;
-                                        color: #000000;
+                                        color: #ffffff;
                                         font-size: 12px;
                                         text-transform: uppercase;
                                         letter-spacing: 1px;
