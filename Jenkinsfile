@@ -57,12 +57,10 @@ properties([
 				                        background-color: #333333;
                                         text-align: center;
                                         padding: 4px;
-                                        color: #343434;
+                                        color: #000000;
                                         font-size: 12px;
-                                        font-weight: normal;
                                         text-transform: uppercase;
                                         letter-spacing: 1px;
-                                        font-style: italic;
                                     """
 		                            ),
 
