@@ -1,5 +1,19 @@
 properties([
                             parameters([
+
+                                separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Set build parameters",
+			                    separatorStyle: "border-width: 0",
+			                        sectionHeaderStyle: """
+				                        background-color: #333333;
+                                        text-align: center;
+                                        padding: 4px;
+                                        color: #000000;
+                                        font-size: 12px;
+                                        text-transform: uppercase;
+                                        letter-spacing: 1px;
+                                    """
+		                            ),
+
                                 [$class: 'ChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
                                     description: 'Wybierz Agenta do budowania zadania:', 
