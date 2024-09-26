@@ -67,11 +67,7 @@ pipeline {
             steps {
                 echo "${params.Agent}"
                 echo "${params.Platform}"
-                script {
-                    def jobDescription = currentBuild.rawBuild.getParent().getDescription()
-                    echo "Job Description: ${jobDescription}"
             }
-        }
         }
         stage('Test') {
             steps {
