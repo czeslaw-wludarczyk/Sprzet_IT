@@ -8,6 +8,10 @@ object frmDelUserError: TfrmDelUserError
   Caption = 'Kasowanie użytkownika'
   ClientHeight = 151
   ClientWidth = 431
+  Font.CharSet = EASTEUROPE_CHARSET
+  Font.Height = -13
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   Position = poMainFormCenter
@@ -196,7 +200,7 @@ object frmDelUserError: TfrmDelUserError
     OnMouseEnter = lblCloseMouseEnter
     OnMouseLeave = lblCloseMouseLeave
   end
-  object btnSave: TButton
+  object btnOK: TButton
     Left = 340
     Height = 31
     Top = 109
@@ -205,7 +209,7 @@ object frmDelUserError: TfrmDelUserError
     Caption = 'OK'
     TabOrder = 0
   end
-  object btnSave1: TButton
+  object btnCancel: TButton
     Left = 253
     Height = 31
     Top = 109
@@ -216,10 +220,10 @@ object frmDelUserError: TfrmDelUserError
   end
   object lblDeleteInfo: TLabel
     Left = 48
-    Height = 15
+    Height = 17
     Top = 48
-    Width = 268
-    Caption = 'Usunięcie użytkowniak usunie wszystkie jego dane.'
+    Width = 292
+    Caption = 'Usunięcie użytkownika usunie wszystkie jego dane.'
     WordWrap = True
   end
 end

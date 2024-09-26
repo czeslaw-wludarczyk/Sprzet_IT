@@ -1,7 +1,7 @@
 object frmAddComputer: TfrmAddComputer
-  Left = 624
+  Left = 697
   Height = 616
-  Top = 157
+  Top = 206
   Width = 481
   BorderIcons = []
   BorderStyle = bsNone
@@ -318,6 +318,7 @@ object frmAddComputer: TfrmAddComputer
       ReadOnly = True
       TabOrder = 0
       OnDblClick = edtNameDblClick
+      OnKeyPress = edtNameKeyPress
     end
     object shpLineEdit3: TShape
       Left = 3
@@ -608,13 +609,16 @@ object frmAddComputer: TfrmAddComputer
     Height = 17
     Top = 542
     Width = 126
+    Alignment = taCenter
     Anchors = [akLeft, akBottom]
+    AutoSize = False
     Caption = 'Komputer już istnieje!'
     Font.CharSet = EASTEUROPE_CHARSET
     Font.Color = clRed
     Font.Height = -13
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
+    Layout = tlCenter
     ParentColor = False
     ParentFont = False
     Visible = False
@@ -938,6 +942,8 @@ object frmAddComputer: TfrmAddComputer
       Align = alClient
       BorderSpacing.Around = 2
       BorderStyle = bsNone
+      ClickOnSelChange = False
+      ExtendedSelect = False
       IntegralHeight = True
       Items.Strings = (
         'Laptop'
@@ -951,6 +957,7 @@ object frmAddComputer: TfrmAddComputer
       TabOrder = 0
       OnClick = lsboxTypeMenuClick
       OnDrawItem = lsboxTypeMenuDrawItem
+      OnKeyPress = lsboxTypeMenuKeyPress
       OnMouseMove = lsboxTypeMenuMouseMove
     end
   end

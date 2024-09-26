@@ -398,8 +398,9 @@ begin
       selected := i;
     end;
   frmShadow.Show();
+
+  //Dialog box
   case frmDelUser.ShowModal() of
-    // how I create my own constructors? or maybe just a set of parameters?
     mrOk: begin
       try
         DBModule.SQLQuery.Close;

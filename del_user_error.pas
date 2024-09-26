@@ -43,7 +43,7 @@ implementation
 
 {$R *.lfm}
 
-uses shadow, Data;
+uses shadow;
 
   { TfrmDelUserError }
 

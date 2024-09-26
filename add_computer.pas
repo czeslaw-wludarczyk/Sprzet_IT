@@ -77,26 +77,24 @@ type
     procedure btnSaveClick(Sender: TObject);
     procedure edtAQNameChange(Sender: TObject);
     procedure edtAQNameExit(Sender: TObject);
-    procedure edtAQNameKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure edtAQNameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure edtDescriptionEnter(Sender: TObject);
     procedure edtDescriptionExit(Sender: TObject);
     procedure edtMarkChange(Sender: TObject);
     procedure edtMarkExit(Sender: TObject);
-    procedure edtMarkKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
-      );
+    procedure edtMarkKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure edtModelChange(Sender: TObject);
     procedure edtModelExit(Sender: TObject);
-    procedure edtModelKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
-      );
+    procedure edtModelKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure edtNameDblClick(Sender: TObject);
     procedure edtAQNameEnter(Sender: TObject);
     procedure edtMarkEnter(Sender: TObject);
     procedure edtModelEnter(Sender: TObject);
+    procedure edtNameKeyPress(Sender: TObject; var Key: char);
     procedure edtSNChange(Sender: TObject);
     procedure edtSNEnter(Sender: TObject);
     procedure edtSNExit(Sender: TObject);
-    procedure edtSNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtSNKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormShow(Sender: TObject);
     procedure lblCloseClick(Sender: TObject);
@@ -107,6 +105,7 @@ type
     procedure lsboxTypeMenuClick(Sender: TObject);
     procedure lsboxTypeMenuDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure lsboxTypeMenuKeyPress(Sender: TObject; var Key: char);
     procedure lsboxTypeMenuMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: integer);
     procedure shpFormBckMouseDown(Sender: TObject; Button: TMouseButton;
@@ -127,40 +126,79 @@ implementation
 
 {$R *.lfm}
 
-uses shadow, Data;
+uses shadow, Data, db_helper, computers;
 
   { TfrmAddComputer }
 
 procedure TfrmAddComputer.Save();
+var
+  category: integer;
 begin
-    if (edtAQName.Text <> '') and (edtMark.Text <> '') and (edtModel.Text <> '') and (edtSN.Text <> '') then
+  if (edtAQName.Text <> '') and (edtMark.Text <> '') and
+    (edtModel.Text <> '') and (edtSN.Text <> '') then
   begin
     DBModule.SQLQuery.Close;
     DBModule.SQLQuery.SQL.Text :=
-      'select name, aq_name, mark, model, serial_number, description from items where name = :name'
-      +
-      ' and aq_name = :aq_name and mark = :mark and model = :model and serial_number = :SN';
-    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+      'select aq_name, serial_number from items where aq_name = :aq_name or serial_number = :SN';
+    //DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
     DBModule.SQLQuery.Params.ParamByName('aq_name').AsString := edtAQName.Text;
-    DBModule.SQLQuery.Params.ParamByName('mark').AsString := edtMark.Text;
-    DBModule.SQLQuery.Params.ParamByName('model').AsString := edtModel.Text;
+    //DBModule.SQLQuery.Params.ParamByName('mark').AsString := edtMark.Text;
+    //DBModule.SQLQuery.Params.ParamByName('model').AsString := edtModel.Text;
     DBModule.SQLQuery.Params.ParamByName('SN').AsString := edtSN.Text;
     DBModule.SQLQuery.Open;
   end
   else
   begin
-    if (edtAQName.Text = '') or (edtAQName.Text = ' ') then shpEditBck2.BorderColor := clRed;
+    if (edtAQName.Text = '') or (edtAQName.Text = ' ') then
+      shpEditBck2.BorderColor := clRed;
     if (edtMark.Text = '') or (edtMark.Text = ' ') then shpEditBck3.BorderColor := clRed;
-    if (edtModel.Text = '') or (edtModel.Text = ' ') then shpEditBck4.BorderColor := clRed;
+    if (edtModel.Text = '') or (edtModel.Text = ' ') then
+      shpEditBck4.BorderColor := clRed;
     if (edtSN.Text = '') or (edtSN.Text = ' ') then shpEditBck5.BorderColor := clRed;
     Exit;
   end;
 
+
   if DBModule.SQLQuery.RecordCount > 0 then
   begin
+    //Check SN number or name
+    if DBModule.SQLQuery.FieldByName('serial_number').AsString = edtSN.Text then
+    begin
+      lblComputerExist.Caption := 'Komputer o tym numerze seryjnym już istnieje!';
+      shpEditBck5.BorderColor := clRed;
+    end
+    else
+    begin
+      lblComputerExist.Caption := 'Komputer o tej nazwie już istnieje!';
+      shpEditBck2.BorderColor := clRed;
+    end;
     lblComputerExist.Visible := True;
     Exit;
   end;
+
+  //Get category komputer ID;
+  category := db_helper.Get_category();
+
+  //Add computer to database
+  try
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'insert into items (name, aq_name, mark, model, serial_number, category, description)VALUES(:name '
+      + ',:aq_name, :mark, :model, :SN, :category, :description)';
+    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+    DBModule.SQLQuery.Params.ParamByName('aq_name').AsString := edtAQName.Text;
+    DBModule.SQLQuery.Params.ParamByName('mark').AsString := edtMark.Text;
+    DBModule.SQLQuery.Params.ParamByName('model').AsString := edtModel.Text;
+    DBModule.SQLQuery.Params.ParamByName('SN').AsString := edtSN.Text;
+    DBModule.SQLQuery.Params.ParamByName('category').AsInteger := category;
+    DBModule.SQLQuery.Params.ParamByName('description').AsString := edtDescription.Text;
+    added_item := edtAQName.Text;
+    DBModule.SQLQuery.ExecSQL;
+  except
+  end;
+  //Close Form
+  Close();
+
 end;
 
 procedure TfrmAddComputer.CloseTypeMenu();
@@ -183,6 +221,16 @@ begin
   edtModel.Clear;
   edtSN.Clear;
   edtDescription.Clear;
+  edtAQName.SetFocus;
+
+  //Set Gui
+  lblComputerExist.Width := frmAddComputer.Width;
+  lblComputerExist.Left := 0;
+
+  shpEditBck2.BorderColor := clSilver;
+  shpEditBck3.BorderColor := clSilver;
+  shpEditBck4.BorderColor := clSilver;
+  shpEditBck5.BorderColor := clSilver;
 
 end;
 
@@ -232,6 +280,15 @@ begin
     Font.Color := clBlack;
     FillRect(ARect);
     TextOut(ARect.Left + 5, ARect.Top + 2, (Control as TListBox).Items[Index]);
+  end;
+end;
+
+procedure TfrmAddComputer.lsboxTypeMenuKeyPress(Sender: TObject; var Key: char);
+begin
+  if Key = char(13) then
+  begin
+    pnlTypeMenu.Visible := False;
+    edtName.Text := lsboxTypeMenu.Items[lsboxTypeMenu.ItemIndex];
   end;
 end;
 
@@ -290,7 +347,7 @@ begin
   shpLineEdit5.Pen.Color := $00969696;
 end;
 
-procedure TfrmAddComputer.edtAQNameKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmAddComputer.edtAQNameKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
   shpEditBck2.BorderColor := clSilver;
@@ -313,7 +370,7 @@ begin
   shpLineEdit7.Pen.Color := $00969696;
 end;
 
-procedure TfrmAddComputer.edtMarkKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmAddComputer.edtMarkKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
   shpEditBck3.BorderColor := clSilver;
@@ -334,6 +391,21 @@ begin
   shpLineEdit9.Pen.Color := $00BA6900;
 end;
 
+procedure TfrmAddComputer.edtNameKeyPress(Sender: TObject; var Key: char);
+begin
+
+  if Key = char(32) then
+  begin
+    if pnlTypeMenu.Visible then pnlTypeMenu.Visible := False
+    else
+    begin
+      pnlTypeMenu.Visible := True;
+      lsboxTypeMenu.ItemIndex := 0;
+      lsboxTypeMenu.SetFocus;
+    end;
+  end;
+end;
+
 procedure TfrmAddComputer.edtSNChange(Sender: TObject);
 begin
   shpEditBck5.BorderColor := clSilver;
@@ -346,7 +418,7 @@ begin
   shpLineEdit9.Pen.Color := $00969696;
 end;
 
-procedure TfrmAddComputer.edtModelKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmAddComputer.edtModelKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
   shpEditBck4.BorderColor := clSilver;
@@ -369,7 +441,7 @@ begin
   shpLineEdit11.Pen.Color := $00969696;
 end;
 
-procedure TfrmAddComputer.edtSNKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmAddComputer.edtSNKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
   shpEditBck5.BorderColor := clSilver;

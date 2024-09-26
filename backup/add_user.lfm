@@ -575,12 +575,15 @@ object frmAddUser: TfrmAddUser
     Height = 17
     Top = 304
     Width = 132
+    Alignment = taCenter
+    AutoSize = False
     Caption = 'Użytkownik już istnieje!'
     Font.CharSet = EASTEUROPE_CHARSET
     Font.Color = clRed
     Font.Height = -13
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
+    Layout = tlCenter
     ParentColor = False
     ParentFont = False
     Visible = False

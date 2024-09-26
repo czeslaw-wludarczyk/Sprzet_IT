@@ -154,6 +154,14 @@ begin
   edtNumber.Text := '';
   chbActive.Checked := True;
   edtName.SetFocus;
+
+  //Set GUI
+  lblUserExist.Width:= frmAddUser.Width;
+  lblUserExist.Left:=0;
+
+  shpEditBck1.BorderColor := clSilver;
+  shpEditBck2.BorderColor := clSilver;
+
 end;
 
 procedure TfrmAddUser.edtNameEnter(Sender: TObject);

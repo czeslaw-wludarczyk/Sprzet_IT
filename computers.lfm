@@ -1,7 +1,7 @@
 object frmComputers: TfrmComputers
-  Left = 455
+  Left = 478
   Height = 630
-  Top = 219
+  Top = 230
   Width = 918
   Align = alClient
   BorderIcons = []
@@ -13,6 +13,7 @@ object frmComputers: TfrmComputers
   Font.Height = -13
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnPaint = FormPaint
   OnResize = FormResize
   OnShow = FormShow
   LCLVersion = '3.4.0.0'
@@ -121,6 +122,7 @@ object frmComputers: TfrmComputers
         Images = frmMain.imgListBtn
         ImageIndex = 4
         Layout = blGlyphTop
+        OnClick = btnDeleteClick
         ParentFont = False
       end
       object btnEdit: TSpeedButton
@@ -518,6 +520,7 @@ object frmComputers: TfrmComputers
           Font.Quality = fqDraft
           ParentColor = False
           ParentFont = False
+          WordWrap = True
         end
       end
       object shpLine4: TShape

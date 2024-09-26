@@ -13,8 +13,8 @@ type
   { TfrmDelUserError }
 
   TfrmDelUserError = class(TForm)
-    btnSave: TButton;
-    btnSave1: TButton;
+    btnOK: TButton;
+    btnCancel: TButton;
     lblDeleteInfo: TLabel;
     lblClose: TLabel;
     lblUserDelTitle: TLabel;
@@ -43,7 +43,7 @@ implementation
 
 {$R *.lfm}
 
-uses shadow, Data;
+uses shadow;
 
   { TfrmDelUserError }
 

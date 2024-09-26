@@ -114,9 +114,6 @@
         <PackageName Value="SQLDBLaz"/>
       </Item>
       <Item>
-        <PackageName Value="TAChartLazarusPkg"/>
-      </Item>
-      <Item>
         <PackageName Value="pl_ExControls"/>
       </Item>
       <Item>
@@ -207,6 +204,24 @@
         <Filename Value="add_computer.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAddComputer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="db_helper.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="del_computer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDelComputer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="del_computer_error.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDelComputerError"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>

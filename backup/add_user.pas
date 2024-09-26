@@ -137,7 +137,6 @@ begin
     added_item := edtName.Text + ' ' + edtSurname.Text;
   except
   end;
-
   //Close Form
   Close();
 end;
@@ -155,6 +154,10 @@ begin
   edtNumber.Text := '';
   chbActive.Checked := True;
   edtName.SetFocus;
+
+  //Set GUI
+  lblUserExist.Width:= frmAddUser.Width;
+  lblUserExist.Left:=0;
 end;
 
 procedure TfrmAddUser.edtNameEnter(Sender: TObject);

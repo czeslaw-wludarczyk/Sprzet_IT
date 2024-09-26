@@ -64,6 +64,8 @@ type
     shpLineEdit3: TShape;
     stBoxComputers: TListBox;
     procedure btnAddClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure stBoxComputersDrawItem(Control: TWinControl; Index: integer;
@@ -89,13 +91,13 @@ implementation
 
 {$R *.lfm}
 
-uses main, data, add_computer, shadow;
+uses main, Data, add_computer, shadow, db_helper, del_computer, del_computer_error;
 
   { TfrmComputers }
 
 procedure TfrmComputers.UpdateGUI();
 begin
-  if stBoxComputers.Items.Count > 0 then
+  if stBoxComputers.ItemIndex <> -1 then
   begin
     pnlCompContent1.Visible := True;
     lblComp1.Caption := ComputerList.Items[stBoxComputers.ItemIndex].Name + ':';
@@ -111,11 +113,13 @@ begin
       pnlCompContent2.Visible := True;
       pnlCompContent2.Height := 48 + lblCompData5.Height + 20;
       shpContent3.Height := lblCompData5.Height + 20;
-    end
-    else
-    begin
-      pnlCompContent2.Visible := False;
     end;
+  end
+  else
+  begin
+    pnlCompContent1.Visible := False;
+    pnlCompContent2.Visible := False;
+    Exit;
   end;
 end;
 
@@ -127,14 +131,7 @@ begin
   ComputerList := TComputersList.Create();
 
   //Get ID category for computers kategory name
-  try
-    DBModule.SQLQuery.Close;
-    DBModule.SQLQuery.SQL.Text :=
-      'select * from category_items where category = "Komputer"';
-    DBModule.SQLQuery.Open;
-    category := DBModule.SQLQuery.FieldByName('id_category').AsInteger;
-  except
-  end;
+  category := db_helper.Get_category();
 
   try
     DBModule.SQLQuery.Close;
@@ -142,30 +139,27 @@ begin
     DBModule.SQLQuery.Params.ParamByName('category').AsInteger := category;
     DBModule.SQLQuery.Open;
   except
-
-  end;
-
-  while not DBModule.SQLQuery.EOF do
-  begin
-    Computer := TComputer.Create;
-    Computer.id_item := DBModule.SQLQuery.FieldByName('id_item').AsInteger;
-    Computer.Name := DBModule.SQLQuery.FieldByName('name').AsString;
-    Computer.aq_name := DBModule.SQLQuery.FieldByName('aq_name').AsString;
-    Computer.mark := DBModule.SQLQuery.FieldByName('mark').AsString;
-    Computer.model := DBModule.SQLQuery.FieldByName('model').AsString;
-    Computer.serial_number := DBModule.SQLQuery.FieldByName('serial_number').AsString;
-    Computer.description := DBModule.SQLQuery.FieldByName('description').AsString;
-    ComputerList.Add(Computer);
-    DBModule.SQLQuery.Next;
   end;
 
   stBoxComputers.Clear();
-  stBoxComputers.Items.BeginUpdate;
-  for i := 0 to ComputerList.Count - 1 do
+
+  if DBModule.SQLQuery.RecordCount > 0 then
   begin
-    stBoxComputers.Items.Add(ComputerList.Items[i].aq_name);
+    while not DBModule.SQLQuery.EOF do
+    begin
+      Computer := TComputer.Create;
+      Computer.id_item := DBModule.SQLQuery.FieldByName('id_item').AsInteger;
+      Computer.Name := DBModule.SQLQuery.FieldByName('name').AsString;
+      Computer.aq_name := DBModule.SQLQuery.FieldByName('aq_name').AsString;
+      Computer.mark := DBModule.SQLQuery.FieldByName('mark').AsString;
+      Computer.model := DBModule.SQLQuery.FieldByName('model').AsString;
+      Computer.serial_number := DBModule.SQLQuery.FieldByName('serial_number').AsString;
+      Computer.description := DBModule.SQLQuery.FieldByName('description').AsString;
+      ComputerList.Add(Computer);
+      stBoxComputers.Items.AddObject(Computer.aq_name, Computer);
+      DBModule.SQLQuery.Next;
+    end;
   end;
-  stBoxComputers.Items.EndUpdate;
 
   //Check buttons
   btnDelete.Enabled := False;
@@ -180,6 +174,7 @@ end;
 procedure TfrmComputers.stBoxComputersDrawItem(Control: TWinControl;
   Index: integer; ARect: TRect; State: TOwnerDrawState);
 begin
+  if stBoxComputers.ItemIndex = -1 then Exit;
   with (Control as TListBox).Canvas do
   begin
     if odSelected in State then Brush.Color := $00F9EEE0;
@@ -229,15 +224,83 @@ begin
   GetComputers();
 
   //Setlect added item or select old selected item
-  for i := 0 to stBoxUsers.Items.Count - 1 do
+  for i := 0 to stBoxComputers.Items.Count - 1 do
     if stBoxComputers.Items[I].Contains(frmAddComputer.added_item) then
     begin
       stBoxComputers.Selected[i] := True;
       Exit;
     end
     else
-    if stBoxComputers.Items.Count - 1 >= 0 then stBoxComputers.Selected[old_selected] := True;
+    if stBoxComputers.Items.Count - 1 >= 0 then
+      stBoxComputers.Selected[old_selected] := True;
 
+end;
+
+procedure TfrmComputers.btnDeleteClick(Sender: TObject);
+var
+  i, selected: integer;
+begin
+  for i := 0 to stBoxComputers.Items.Count - 1 do
+    if stBoxComputers.Selected[i] then
+    begin
+      selected := i;
+    end;
+  frmShadow.Show();
+
+  //Check if computer not assigned to user
+  try
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'select id_item, id_customer from items where id_item = :id_comp and id_customer is null';
+    DBModule.SQLQuery.Params.ParamByName('id_comp').AsInteger :=
+      TComputer(stBoxComputers.Items.Objects[stBoxComputers.ItemIndex]).id_item;
+    DBModule.SQLQuery.Open;
+  finally
+  end;
+
+  //Show messages when computer is assigned to user and can not delete.
+  if DBModule.SQLQuery.RecordCount = 0 then
+  begin
+    frmShadow.Show();
+    frmDelComputerError.ShowModal();
+  end
+  else
+  begin
+    //Dialog box for delete computer when not assigned to user.
+    case frmDelComputer.ShowModal() of
+      mrOk: begin
+        try
+          DBModule.SQLQuery.Close;
+          DBModule.SQLQuery.SQL.Text :=
+            'delete from items where id_item = :id_comp and id_customer is null';
+          DBModule.SQLQuery.Params.ParamByName('id_comp').AsInteger :=
+            TComputer(stBoxComputers.Items.Objects[stBoxComputers.ItemIndex]).id_item;
+          DBModule.SQLQuery.ExecSQL;
+          GetComputers();
+          if selected = 0 then
+          begin
+            if stBoxComputers.Items.Count - 1 >= 0 then
+              stBoxComputers.Selected[selected] := True;
+          end
+          else
+          begin
+            if stBoxComputers.Items.Count - 1 >= 0 then
+              stBoxComputers.Selected[selected - 1] := True;
+          end;
+          UpdateGUI();
+        except
+        end;
+      end;
+      mrCancel: begin
+        Exit;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmComputers.FormPaint(Sender: TObject);
+begin
+  UpdateGUI();
 end;
 
 end.

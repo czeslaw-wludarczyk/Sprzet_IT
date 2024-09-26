@@ -1,10 +1,10 @@
 object frmMain: TfrmMain
-  Left = 304
-  Height = 787
-  Top = 127
+  Left = 424
+  Height = 640
+  Top = 243
   Width = 1006
   Caption = 'Sprzęt IT'
-  ClientHeight = 787
+  ClientHeight = 640
   ClientWidth = 1006
   Color = 15987699
   Constraints.MinHeight = 300
@@ -17,13 +17,13 @@ object frmMain: TfrmMain
   LCLVersion = '3.4.0.0'
   object pnlSplitView: TPanel
     Left = 0
-    Height = 740
+    Height = 593
     Top = 47
     Width = 72
     Align = alLeft
     BevelColor = 15987699
     BevelOuter = bvNone
-    ClientHeight = 740
+    ClientHeight = 593
     ClientWidth = 72
     Font.CharSet = ANSI_CHARSET
     Font.Height = -19
@@ -35,19 +35,19 @@ object frmMain: TfrmMain
     TabOrder = 0
     object ScrollBox1: TScrollBox
       Left = 0
-      Height = 616
+      Height = 469
       Top = 0
       Width = 72
       HorzScrollBar.Page = 1
       HorzScrollBar.Visible = False
-      VertScrollBar.Increment = 51
-      VertScrollBar.Page = 512
+      VertScrollBar.Increment = 46
+      VertScrollBar.Page = 469
       VertScrollBar.Smooth = True
       VertScrollBar.Tracking = True
       Align = alClient
       BorderStyle = bsNone
-      ClientHeight = 616
-      ClientWidth = 72
+      ClientHeight = 469
+      ClientWidth = 55
       Color = 15987699
       ParentBackground = False
       ParentColor = False
@@ -56,12 +56,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 2
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 0
         OnClick = pnlHomeMenuClick
@@ -143,12 +143,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 61
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 1
         OnClick = pnlUsersMenuClick
@@ -230,12 +230,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 238
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 2
         OnClick = pnlPhonesMenuClick
@@ -317,7 +317,7 @@ object frmMain: TfrmMain
         Left = 0
         Height = 40
         Top = 295
-        Width = 72
+        Width = 55
         Align = alTop
         BevelOuter = bvNone
         ParentBackground = False
@@ -327,12 +327,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 337
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 4
         OnMouseEnter = pnlReleaseMenuMouseEnter
@@ -411,12 +411,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 396
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 5
         OnMouseEnter = pnlReturnMenuMouseEnter
@@ -494,12 +494,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 455
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 6
         OnMouseEnter = pnlTrashMenuMouseEnter
@@ -577,12 +577,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 179
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 7
         OnClick = pnlAccesoriesMenuClick
@@ -664,12 +664,12 @@ object frmMain: TfrmMain
         Left = 0
         Height = 57
         Top = 120
-        Width = 72
+        Width = 55
         Align = alTop
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 57
-        ClientWidth = 72
+        ClientWidth = 55
         ParentBackground = False
         TabOrder = 8
         OnClick = pnlComputersMenuClick
@@ -749,9 +749,9 @@ object frmMain: TfrmMain
       end
       object pnlDivideMenu5: TPanel
         Left = 0
-        Height = 104
+        Height = 0
         Top = 512
-        Width = 72
+        Width = 55
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
@@ -761,7 +761,7 @@ object frmMain: TfrmMain
     object pnlInfoMenu: TPanel
       Left = 0
       Height = 57
-      Top = 678
+      Top = 531
       Width = 72
       Align = alBottom
       BorderSpacing.Top = 2
@@ -845,7 +845,7 @@ object frmMain: TfrmMain
     object pnlSettingsMenu: TPanel
       Left = 0
       Height = 57
-      Top = 619
+      Top = 472
       Width = 72
       Align = alBottom
       BorderSpacing.Top = 2
@@ -928,7 +928,7 @@ object frmMain: TfrmMain
     object shpSplitMenuDivideBottom: TShape
       Left = 2
       Height = 1
-      Top = 616
+      Top = 469
       Width = 68
       Align = alBottom
       BorderSpacing.Left = 2
@@ -938,20 +938,20 @@ object frmMain: TfrmMain
   end
   object pnlContentBck: TPanel
     Left = 72
-    Height = 740
+    Height = 593
     Top = 47
     Width = 934
     Align = alClient
     BevelColor = 15987699
     BevelOuter = bvNone
     Caption = 'Content'
-    ClientHeight = 740
+    ClientHeight = 593
     ClientWidth = 934
     ParentBackground = False
     TabOrder = 1
     object shpContent: TBGRAShape
       Left = 0
-      Height = 770
+      Height = 623
       Top = 0
       Width = 958
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -978,7 +978,7 @@ object frmMain: TfrmMain
     end
     object pnlContent: TPanel
       Left = 4
-      Height = 732
+      Height = 585
       Top = 4
       Width = 926
       Align = alClient

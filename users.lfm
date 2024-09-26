@@ -1,7 +1,7 @@
 object frmUsers: TfrmUsers
-  Left = 469
+  Left = 484
   Height = 596
-  Top = 235
+  Top = 241
   Width = 865
   Align = alClient
   BorderIcons = []

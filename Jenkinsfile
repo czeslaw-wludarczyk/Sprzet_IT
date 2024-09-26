@@ -50,10 +50,15 @@ properties([
                                                 '''
                                         ]
                                     ]
-                                ]
+                                ],
 
-
+                                
                             ])
+                            parameters {
+                                string(name: 'MajorVersion',  defaultValue: '1', description: 'Major version')
+			                    string(name: 'MinorVersion',  defaultValue: '0', description: 'Minor version')
+			                    string(name: 'BugfixVersion', defaultValue: '1', description: 'Bugfix version')
+                            }
 ])
 
 pipeline {

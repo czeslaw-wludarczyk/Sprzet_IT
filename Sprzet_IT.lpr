@@ -10,9 +10,9 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, tachartlazaruspkg, runtimetypeinfocontrols, lazcontrols, Main,
+  Forms, runtimetypeinfocontrols, lazcontrols, Main,
   dashboard, Data, users, add_user, shadow, del_user_error, edit_user, del_user,
-  computers, add_computer;
+  computers, add_computer, db_helper, del_computer, del_computer_error;
 
 {$R *.res}
 
@@ -31,6 +31,8 @@ begin
   Application.CreateForm(TfrmDelUser, frmDelUser);
   Application.CreateForm(TfrmComputers, frmComputers);
   Application.CreateForm(TfrmAddComputer, frmAddComputer);
+  Application.CreateForm(TfrmDelComputer, frmDelComputer);
+  Application.CreateForm(TfrmDelComputerError, frmDelComputerError);
   Application.Run;
 end.
 

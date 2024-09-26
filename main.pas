@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, LMessages, ExtCtrls,
-  StdCtrls, RTTICtrls, dashboard, BGRAShape, Windows;
+  StdCtrls, dashboard, BGRAShape, Windows;
 
 type
 
