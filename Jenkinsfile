@@ -51,17 +51,16 @@ properties([
                                         ]
                                     ]
                                 ],
-                                separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Build Environment",
+                                separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Version set",
 			separatorStyle: "border-width: 0",
 			sectionHeaderStyle: """
 				background-color: #7ea6d3;
 				text-align: center;
 				padding: 4px;
 				color: #343434;
-				font-size: 22px;
+				font-size: 12px;
 				font-weight: normal;
 				text-transform: uppercase;
-				font-family: 'Orienta', sans-serif;
 				letter-spacing: 1px;
 				font-style: italic;
 			"""
