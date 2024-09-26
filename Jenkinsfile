@@ -52,19 +52,20 @@ properties([
                                     ]
                                 ],
                                 separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Version set",
-			separatorStyle: "border-width: 0",
-			sectionHeaderStyle: """
-				background-color: #7ea6d3;
-				text-align: center;
-				padding: 4px;
-				color: #343434;
-				font-size: 12px;
-				font-weight: normal;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				font-style: italic;
-			"""
-		),
+			                    separatorStyle: "border-width: 0",
+			                        sectionHeaderStyle: """
+				                        background-color: #333333;
+                                        text-align: center;
+                                        padding: 4px;
+                                        color: #343434;
+                                        font-size: 12px;
+                                        font-weight: normal;
+                                        text-transform: uppercase;
+                                        letter-spacing: 1px;
+                                        font-style: italic;
+                                    """
+		                            ),
+
                                 string(name: 'MajorVersion',  defaultValue: '1', description: ''),
 			                    string(name: 'MinorVersion',  defaultValue: '0', description: ''),
 			                    string(name: 'BugfixVersion', defaultValue: '1', description: '')
