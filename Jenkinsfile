@@ -1,3 +1,5 @@
+//plugins needed installed: Parameter Separator, Active Choices
+
 properties([
                             parameters([
 
