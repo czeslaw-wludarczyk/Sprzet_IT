@@ -18,7 +18,7 @@ properties([
 
                                 [$class: 'ChoiceParameter', 
                                     choiceType: 'PT_SINGLE_SELECT', 
-                                    description: 'Wybierz Agenta do budowania zadania:', 
+                                    description: 'Select an Agent to build the job:', 
                                     filterLength: 1, 
                                     filterable: false, 
                                     name: 'Agent', 
@@ -41,7 +41,7 @@ properties([
 
                              [$class: 'CascadeChoiceParameter', 
                                     choiceType: 'PT_CHECKBOX', 
-                                    description: 'Wybierz platforme na ktorej ma zbudowac sie projekt:', 
+                                    description: 'Choose architecture:', 
                                     filterLength: 1, 
                                     filterable: false, 
                                     name: 'Platform', 
