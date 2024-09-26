@@ -67,7 +67,7 @@ pipeline {
             steps {
                 echo "${params.Agent}"
                 echo "${params.Platform}"
-                echo "Executed @ ${NODE_NAME}"
+                echo "${currentBuild.description}"
             }
         }
         stage('Test') {
