@@ -51,7 +51,21 @@ properties([
                                         ]
                                     ]
                                 ],
-                                separator(name: "Versioning"),
+                                separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Build Environment",
+			separatorStyle: "border-width: 0",
+			sectionHeaderStyle: """
+				background-color: #7ea6d3;
+				text-align: center;
+				padding: 4px;
+				color: #343434;
+				font-size: 22px;
+				font-weight: normal;
+				text-transform: uppercase;
+				font-family: 'Orienta', sans-serif;
+				letter-spacing: 1px;
+				font-style: italic;
+			"""
+		),
                                 string(name: 'MajorVersion',  defaultValue: '1', description: 'Major version'),
 			                    string(name: 'MinorVersion',  defaultValue: '0', description: 'Minor version'),
 			                    string(name: 'BugfixVersion', defaultValue: '1', description: 'Bugfix version')
