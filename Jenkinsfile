@@ -92,10 +92,11 @@ pipeline {
 
     stages {
         stage('Build') {
-            
+            steps {       
                 echo "${params.Agent}"
                 echo "${params.Platform}"
                 }
+        }
         
         stage('Test') {
             steps {
