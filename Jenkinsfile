@@ -97,10 +97,12 @@ pipeline {
                     if (params.Agent == 'DELPHI') { 
                         echo 'Start script for DELPHI: '
                         echo 'Delphi projject building...'
+                        //insert script groovy for building stage for project
                         }
                     if (params.Agent == 'QT6') { 
                         echo 'Start script for QT6: '
                         echo 'QT6 projject building...'
+                        //insert script groovy for building stage for project
                         }              
                 }
                 echo "${params.Platform}"
