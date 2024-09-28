@@ -114,5 +114,4 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
 }
