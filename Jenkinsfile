@@ -103,7 +103,7 @@ pipeline {
                 //echo "${params.Platform}"
                 }
             }
-        }
+        
         stage('Test') {
             steps {
                 echo 'Testing..'
@@ -114,4 +114,5 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+    }
 }
