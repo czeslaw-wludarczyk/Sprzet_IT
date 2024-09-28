@@ -92,17 +92,10 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                when {
-                    environemnts name: 'Agent', value: 'DELPHI' 
+            
+                echo "${params.Agent}"
+                echo "${params.Platform}"
                 }
-                steps {
-                    echo "${params.Agent}"
-                }
-                
-                //echo "${params.Platform}"
-                }
-            }
         
         stage('Test') {
             steps {
