@@ -59,8 +59,8 @@ properties([
                                             sandbox: false, 
                                             script: '''
                                                 if (Agent.equals ("DELPHI")) {return [\'Win32:selected\', \'Win64:selected\', "iOS"]}
-                                                if (Agent.equals ('QT6')) {return ['Win32:selected\',\'Win64:selected\','iOS','Android']}
-                                                if (Agent.equals ('QT5')) {return [\'Win32:selected\',\'Win64:selected\','iOS','Android']}
+                                                if (Agent.equals ('QT6')) {return ['Win32 Qmake:selected\',\'Win64 QMake:selected\', 'Win32 CMake', 'Win64 Cmake', 'iOS', 'Android']}
+                                                if (Agent.equals ('QT5')) {return [\'Win32 QMake:selected\',\'Win64 QMake:selected\', 'Win32 CMake', 'Win64 Cmake', 'iOS','Android']}
                                                 if (Agent.equals ('C#')) {return ['Win32',\'Win64:selected\']}
                                                 if (Agent.equals ('ANDROID')) {return [\'Android:selected\']}
                                                 '''
@@ -79,11 +79,11 @@ properties([
                                         letter-spacing: 1px;
                                     """
 		                            ),
-
+                                //Load parameter version from file version.txt
+                                //File will be create on appVersioning script
                                 string(name: 'MajorVersion',  defaultValue: '1', description: ''),
 			                    string(name: 'MinorVersion',  defaultValue: '0', description: ''),
 			                    string(name: 'BugfixVersion', defaultValue: '1', description: '')
-                                
                             ])               
 ])
 
@@ -93,8 +93,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "${params.Agent}"
-                echo "${params.Platform}"
+                when {
+                    environemnts Agent: 'DELPHI'
+                }
+                steps {
+                    echo "${params.Agent}"
+                }
+                
+                //echo "${params.Platform}"
+                }
             }
         }
         stage('Test') {

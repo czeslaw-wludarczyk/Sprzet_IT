@@ -1,0 +1,155 @@
+@Library('aq-pipeline-library@aqupda2')_
+
+pipeline {
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '7', artifactNumToKeepStr: '7'))
+	}
+	parameters {
+            choice(name: 'DEV_LANG', choices: ['DELPHI', 'QT6', 'QT5'], description: '')
+			string(name: 'arch', defaultValue: 'Win64')
+			string(name: 'targecik', defaultValue: 'Release')
+			booleanParam(name: 'archIs64Bit', defaultValue: true, description: '')
+			string(name: 'MajorVersion',  defaultValue: '1', description: 'Major version')
+			string(name: 'MinorVersion',  defaultValue: '0', description: 'Minor version')
+			string(name: 'BugfixVersion', defaultValue: '1', description: 'Bugfix version')
+    }
+    environment {
+        LC_ALL = 'en_US.UTF-8'
+        LANG    = 'en_US.UTF-8'
+        LANGUAGE = 'en_US.UTF-8'
+    }
+	agent {
+		label 'Win10DelphiXe1023'
+	}
+
+    stages {
+		stage('Declaration & Cleaning') {
+			steps {
+				bat 'set'
+				script {
+					arch = params.arch
+					targecik = params.targecik
+					
+					program_name="wp"
+					DCC_BPLOutput="BPL"
+					DCC_DCUOutput="DCU"
+					echo(env.getEnvironment().collect({environmentVariable ->  "${environmentVariable.key} = ${environmentVariable.value}"}).join("\n"))
+					echo(System.getenv().collect({environmentVariable ->  "${environmentVariable.key} = ${environmentVariable.value}"}).join("\n"))
+					
+					urlForUpdater = "${JOB_URL}" 
+					urlForUpdater = urlForUpdater.replace("${JENKINS_URL}", "")
+					urlForUpdater = urlForUpdater.replace("job/"+"${JOB_BASE_NAME}/", "")
+					 
+					echo "urlForUpdater = " + "${urlForUpdater}" 
+					echo "Params = ${params}"
+				}
+				cleanWs()
+				checkout scm
+			}
+		}
+
+		stage('Download submodule') {
+            steps {
+                bat 'git submodule update --init --recursive'
+            }
+        }
+
+		stage('Version file generating') {
+            steps {
+                script {
+					appVersioning params.MajorVersion, params.MinorVersion, params.BugfixVersion,"Screp report","Aplikacja do generowania raportow scrapu ns PO1","${program_name}.exe"
+                }
+            }
+        }
+		
+		stage('Build') {
+			steps {
+				bat """
+					call "C:\\Program Files (x86)\\Embarcadero\\Studio\\19.0\\bin\\rsvars.bat"
+					"C:\\Windows\\Microsoft.NET\\Framework\\v3.5\\MSBuild.exe" /v:d /t:Clean,Build /p:config=${targecik} /p:platform="${arch}" /p:DCC_BPLOutput=${DCC_BPLOutput} /p:DCC_DCUOutput=${DCC_DCUOutput} /p:DefineConstants="BUILD_NUMBER=${BUILD_NUMBER};BUILD_ID=${BUILD_ID}" ${program_name}.dproj
+				"""
+				stash includes: "${arch}\\${targecik}\\*.exe", name: 'myappexeunsig'
+			}			
+		}
+		
+		stage('DigiSign App') {
+			agent {
+				label 'cert'
+			}
+			steps {
+				unstash 'myappexeunsig'
+				script {
+					codeSign "${arch}\\${targecik}\\${program_name}.exe"
+				}
+				stash includes: "${arch}\\${targecik}\\*.exe", name: 'myappexe'
+			}
+		}
+
+		stage('Copy file') {
+			steps {
+				unstash 'myappexe'
+				bat """
+					xcopy /Y FDConnectionDefs.ini ${arch}\\${targecik}\\
+					xcopy /Y ${program_name}.cfg ${arch}\\${targecik}\\					
+					xcopy /Y libs\\anza\\bin\\${arch}\\mysql\\libmysql.dll ${arch}\\${targecik}\\
+					xcopy /Y libs\\anza\\bin\\${arch}\\sqlanywhere17\\dbodbc17.dll ${arch}\\${targecik}\\
+					xcopy /Y libs\\anza\\bin\\${arch}\\ssl\\libeay32.dll ${arch}\\${targecik}\\
+					xcopy /Y libs\\anza\\bin\\${arch}\\ssl\\ssleay32.dll ${arch}\\${targecik}\\
+				"""
+			}
+		}
+
+		stage('Logs & Archive') {
+			steps {
+				bat """
+					git log --no-merges --date=short > ${arch}\\${targecik}\\changelog.txt
+					powershell "Compress-Archive ${arch}\\${targecik}\\* ${program_name}.zip"
+				"""
+			}
+		}
+
+		stage('Inno/Msi Setups') {
+            steps {
+                script {
+                    innoSetup "${urlForUpdater}", "${program_name}", "${arch}\\${targecik}\\", params.archIs64Bit
+					msiSetup "${urlForUpdater}", "${program_name}", "${arch}\\${targecik}\\", params.archIs64Bit
+                }
+				stash includes: "*Installer.*", name: 'installersunsig'
+            }
+        }
+		
+		stage('DigiSign Setups') {
+			agent {
+				label 'cert'
+			}
+			steps {
+				unstash 'installersunsig'
+				script {
+					codeSign "${program_name} Installer.exe"
+					codeSign "${program_name} Installer.msi"
+				}
+				stash includes: "*Installer.*", name: 'installers'
+			}
+		}
+
+		stage('Restoring Signed Setups') {
+            steps {
+                unstash 'installers'
+            }
+        }
+				
+    }
+
+	post {
+         always {
+             archiveArtifacts artifacts: '*.zip', fingerprint: true
+             archiveArtifacts artifacts: '*.msi', fingerprint: true, onlyIfSuccessful: true
+             archiveArtifacts artifacts: '*.exe', fingerprint: true, onlyIfSuccessful: true
+        }		
+		success {
+			script { 
+				innoPostToDoc "${urlForUpdater}", "${program_name}"
+			}		
+		}
+    }	
+}
