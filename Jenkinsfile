@@ -93,7 +93,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {       
-                echo "${params.Agent}"
+                script {
+                    if (params.Agent == 'DELPHI'{ echo 'Start script for DELPHI: '+"${params.Agent}"})
+                    if (params.Agent == 'QT6'{ echo 'Start script for QT6: '+"${params.Agent}"})
+                }
                 echo "${params.Platform}"
                 }
         }
