@@ -94,7 +94,7 @@ pipeline {
         stage('Build') {
             steps {
                 when {
-                    environemnts Agent: 'DELPHI'
+                    environemnts name: 'Agent', value: 'DELPHI' 
                 }
                 steps {
                     echo "${params.Agent}"
