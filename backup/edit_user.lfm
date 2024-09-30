@@ -328,6 +328,7 @@ object frmEditUser: TfrmEditUser
       BorderStyle = bsNone
       MaxLength = 30
       TabOrder = 0
+      OnChange = edtNameChange
       OnEnter = edtNameEnter
       OnExit = edtNameExit
       OnKeyDown = edtNameKeyDown
@@ -405,6 +406,7 @@ object frmEditUser: TfrmEditUser
       BorderStyle = bsNone
       MaxLength = 50
       TabOrder = 0
+      OnChange = edtSurnameChange
       OnEnter = edtSurnameEnter
       OnExit = edtSurnameExit
       OnKeyDown = edtSurnameKeyDown

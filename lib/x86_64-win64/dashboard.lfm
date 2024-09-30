@@ -1,38 +1,39 @@
 object frmDashboard: TfrmDashboard
   Left = 509
-  Height = 688
+  Height = 726
   Top = 154
-  Width = 913
+  Width = 845
   Align = alClient
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Dashboard'
-  ClientHeight = 688
-  ClientWidth = 913
+  ClientHeight = 726
+  ClientWidth = 845
   Color = clWhite
   OnShow = FormShow
   LCLVersion = '3.4.0.0'
   object ScrollBox1: TScrollBox
     Left = 0
-    Height = 688
+    Height = 726
     Top = 0
-    Width = 913
+    Width = 845
     HorzScrollBar.Page = 410
-    VertScrollBar.Page = 688
+    VertScrollBar.Page = 720
     Align = alClient
     Anchors = []
     BorderStyle = bsNone
-    ClientHeight = 688
-    ClientWidth = 896
+    ClientHeight = 726
+    ClientWidth = 845
     ParentBackground = False
     TabOrder = 0
     object FlowPanel1: TFlowPanel
       Left = 0
-      Height = 720
+      Height = 726
       Top = 0
-      Width = 896
+      Width = 845
       Align = alClient
       BevelOuter = bvNone
+      Color = 16382457
       ControlList = <      
         item
           Control = pnlCustomers
@@ -60,6 +61,7 @@ object frmDashboard: TfrmDashboard
       Font.Height = -13
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
+      ParentColor = False
       ParentFont = False
       TabOrder = 0
       object pnlCustomers: TPanel

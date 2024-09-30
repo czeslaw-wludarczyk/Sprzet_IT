@@ -5,7 +5,7 @@ unit dashboard;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls, TANavigation, BCRadialProgressBar,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
   BGRAShape, data;
 
 type

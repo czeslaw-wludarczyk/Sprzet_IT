@@ -12,7 +12,8 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, runtimetypeinfocontrols, lazcontrols, Main,
   dashboard, Data, users, add_user, shadow, del_user_error, edit_user, del_user,
-  computers, add_computer, db_helper, del_computer, del_computer_error;
+  computers, add_computer, db_helper, del_computer, del_computer_error, 
+Information, edit_computer;
 
 {$R *.res}
 
@@ -33,6 +34,8 @@ begin
   Application.CreateForm(TfrmAddComputer, frmAddComputer);
   Application.CreateForm(TfrmDelComputer, frmDelComputer);
   Application.CreateForm(TfrmDelComputerError, frmDelComputerError);
+  Application.CreateForm(TfrmInformation, frmInformation);
+  Application.CreateForm(TfrmEditComputer, frmEditComputer);
   Application.Run;
 end.
 

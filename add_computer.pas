@@ -177,7 +177,7 @@ begin
   end;
 
   //Get category komputer ID;
-  category := db_helper.Get_category();
+  category := db_helper.Get_category('Komputer');
 
   //Add computer to database
   try
@@ -338,6 +338,7 @@ begin
   shpEditBck2.Height := 28;
   shpLineEdit4.Pen.Color := $00BA6900;
   shpLineEdit5.Pen.Color := $00BA6900;
+  edtAQName.SelStart := Length(edtAQName.Text);
 end;
 
 procedure TfrmAddComputer.edtAQNameExit(Sender: TObject);
@@ -361,6 +362,7 @@ begin
   shpEditBck3.Height := 28;
   shpLineEdit6.Pen.Color := $00BA6900;
   shpLineEdit7.Pen.Color := $00BA6900;
+  edtMark.SelStart:= Length(edtMark.Text);
 end;
 
 procedure TfrmAddComputer.edtMarkExit(Sender: TObject);
@@ -389,6 +391,7 @@ begin
   shpEditBck4.Height := 28;
   shpLineEdit8.Pen.Color := $00BA6900;
   shpLineEdit9.Pen.Color := $00BA6900;
+  edtModel.SelStart:= Length(edtModel.Text);
 end;
 
 procedure TfrmAddComputer.edtNameKeyPress(Sender: TObject; var Key: char);
@@ -432,6 +435,7 @@ begin
   shpEditBck5.Height := 28;
   shpLineEdit10.Pen.Color := $00BA6900;
   shpLineEdit11.Pen.Color := $00BA6900;
+  edtSN.SelStart:= Length(edtSN.Text);
 end;
 
 procedure TfrmAddComputer.edtSNExit(Sender: TObject);
@@ -455,6 +459,7 @@ begin
   shpEditBck6.Height := shpEditBck6.Height - 1;
   shpLineEdit12.Pen.Color := $00BA6900;
   shpLineEdit13.Pen.Color := $00BA6900;
+  edtDescription.SelStart:= Length(edtDescription.Text);
 end;
 
 procedure TfrmAddComputer.edtDescriptionExit(Sender: TObject);
@@ -468,8 +473,6 @@ procedure TfrmAddComputer.edtMarkChange(Sender: TObject);
 begin
   shpEditBck3.BorderColor := clSilver;
 end;
-
-
 
 procedure TfrmAddComputer.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin

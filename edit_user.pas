@@ -68,7 +68,7 @@ type
     procedure lblCloseMouseEnter(Sender: TObject);
     procedure lblCloseMouseLeave(Sender: TObject);
   private
-
+    procedure GetCustomerData();
   public
 
   end;
@@ -84,15 +84,10 @@ uses shadow, Data, users;
 
   { TfrmEditUser }
 
-procedure TfrmEditUser.FormShow(Sender: TObject);
+procedure TfrmEditUser.GetCustomerData();
 var
   status: integer;
 begin
-  Color := $00C9C9C9;
-  SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) or
-    WS_EX_LAYERED);
-  SetLayeredWindowAttributes(Handle, frmEditUser.Color, 255, LWA_COLORKEY);
-
   //Get customer data
   DBModule.SQLQuery.Close;
   DBModule.SQLQuery.SQL.Text :=
@@ -110,6 +105,17 @@ begin
   if status = 1 then chbActive.Checked := True
   else
     chbActive.Checked := False;
+end;
+
+procedure TfrmEditUser.FormShow(Sender: TObject);
+begin
+  Color := $00C9C9C9;
+  SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) or
+    WS_EX_LAYERED);
+  SetLayeredWindowAttributes(Handle, frmEditUser.Color, 255, LWA_COLORKEY);
+
+  //Get Customers data
+  GetCustomerData();
 
   //Set editbox colors
   shpEditBck1.BorderColor := clSilver;

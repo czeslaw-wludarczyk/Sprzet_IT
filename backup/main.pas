@@ -66,6 +66,8 @@ type
     pnlSplitView: TPanel;
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure lblInfoMenuClick(Sender: TObject);
     procedure pnlAccesoriesMenuClick(Sender: TObject);
     procedure pnlAccesoriesMenuMouseEnter(Sender: TObject);
     procedure pnlAccesoriesMenuMouseLeave(Sender: TObject);
@@ -109,7 +111,7 @@ implementation
 
 {$R *.lfm}
 
-uses users, computers;
+uses users, computers, information;
 
 { TfrmMain }
 
@@ -139,13 +141,14 @@ begin
   lblInfoBck.FillColor := hover_item_color;
 
   shpContent.BorderColor := clSilver;
-  shpContent.FillColor := clWhite;
+  shpContent.FillColor := $F9F9F9;
   pnlContent.BorderSpacing.Around := 4;
 
   //Close form
   frmDashboard.Close();
   frmUsers.Close();
   frmComputers.Close();
+  frmInformation.Close();
 
   case select_menu of
     1:
@@ -220,6 +223,8 @@ begin
       lblInfoBck.Visible := True;
       lblInfoBck.FillColor := select_item_color;
       lblTitleMenuForm.Caption := 'Informacje';
+      frmInformation.Parent := pnlContent;
+      frmInformation.Show();
     end;
   end;
 end;
@@ -236,6 +241,17 @@ begin
   lblHomeBck.FillColor := select_item_color;
   lblTitleMenuForm.Caption := 'Dashboard';
   First := True;
+end;
+
+procedure TfrmMain.FormResize(Sender: TObject);
+begin
+  frmMain.Caption:='Width: '+frmMain.Width.ToString + ' Height: '+frmMain.Height.toString;
+end;
+
+procedure TfrmMain.lblInfoMenuClick(Sender: TObject);
+begin
+  select_menu:= 10;
+  ClearMenu();
 end;
 
 procedure TfrmMain.pnlAccesoriesMenuClick(Sender: TObject);
@@ -308,6 +324,7 @@ end;
 
 procedure TfrmMain.pnlInfoMenuMouseLeave(Sender: TObject);
 begin
+  if select_menu = 10 then Exit;
   lblInfoBck.Visible := False;
 end;
 

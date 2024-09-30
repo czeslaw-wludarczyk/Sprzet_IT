@@ -1,7 +1,7 @@
 object frmComputers: TfrmComputers
-  Left = 455
+  Left = 450
   Height = 630
-  Top = 219
+  Top = 188
   Width = 918
   Align = alClient
   BorderIcons = []
@@ -137,6 +137,7 @@ object frmComputers: TfrmComputers
         Images = frmMain.imgListBtn
         ImageIndex = 5
         Layout = blGlyphTop
+        OnClick = btnEditClick
         ParentFont = False
       end
       object pnlEditName: TPanel

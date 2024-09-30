@@ -1,7 +1,7 @@
 object frmAddComputer: TfrmAddComputer
-  Left = 628
+  Left = 697
   Height = 616
-  Top = 36
+  Top = 206
   Width = 481
   BorderIcons = []
   BorderStyle = bsNone

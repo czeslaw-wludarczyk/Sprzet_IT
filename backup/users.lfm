@@ -1,7 +1,7 @@
 object frmUsers: TfrmUsers
-  Left = 472
+  Left = 484
   Height = 596
-  Top = 66
+  Top = 241
   Width = 865
   Align = alClient
   BorderIcons = []
@@ -31,7 +31,7 @@ object frmUsers: TfrmUsers
     BorderStyle = bsNone
     ClientHeight = 596
     ClientWidth = 503
-    Color = 15987699
+    Color = 16382457
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
@@ -116,7 +116,7 @@ object frmUsers: TfrmUsers
       BevelOuter = bvNone
       ClientHeight = 154
       ClientWidth = 503
-      Color = 15987699
+      Color = 16382457
       DoubleBuffered = True
       ParentBackground = False
       ParentColor = False

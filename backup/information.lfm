@@ -1,0 +1,240 @@
+object frmInformation: TfrmInformation
+  Left = 372
+  Height = 559
+  Top = 208
+  Width = 571
+  Align = alClient
+  BorderIcons = []
+  BorderStyle = bsNone
+  Caption = 'frmInformation'
+  ClientHeight = 559
+  ClientWidth = 571
+  Color = 16382457
+  Font.CharSet = EASTEUROPE_CHARSET
+  Font.Height = -13
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  LCLVersion = '3.4.0.0'
+  object ScrollBox1: TScrollBox
+    Left = 0
+    Height = 559
+    Top = 0
+    Width = 571
+    HorzScrollBar.Page = 257
+    VertScrollBar.Page = 312
+    Align = alClient
+    ClientHeight = 555
+    ClientWidth = 567
+    ParentBackground = False
+    TabOrder = 0
+    object pnlUserContent: TPanel
+      Left = 0
+      Height = 136
+      Top = 20
+      Width = 567
+      Align = alTop
+      BorderSpacing.Top = 20
+      BevelOuter = bvNone
+      ClientHeight = 136
+      ClientWidth = 567
+      Color = 16382457
+      DoubleBuffered = True
+      ParentBackground = False
+      ParentColor = False
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      object shpContent2: TBGRAShape
+        Left = 30
+        Height = 120
+        Top = 8
+        Width = 507
+        Align = alClient
+        Angle = 45
+        BorderColor = clSilver
+        BorderGradient.StartColor = clWhite
+        BorderGradient.EndColor = clBlack
+        BorderGradient.GradientType = gtLinear
+        BorderGradient.Point1XPercent = 0
+        BorderGradient.Point1YPercent = 0
+        BorderGradient.Point2XPercent = 100
+        BorderGradient.Point2YPercent = 100
+        FillColor = clWhite
+        FillOpacity = 255
+        FillGradient.StartColor = clWhite
+        FillGradient.EndColor = clBlack
+        FillGradient.GradientType = gtLinear
+        FillGradient.Point1XPercent = 0
+        FillGradient.Point1YPercent = 0
+        FillGradient.Point2XPercent = 0
+        FillGradient.Point2YPercent = 100
+        BorderSpacing.Left = 30
+        BorderSpacing.Top = 8
+        BorderSpacing.Right = 30
+        BorderSpacing.Bottom = 8
+        Caption = 'shpContent2'
+        RoundRadius = 10
+      end
+      object lblUserName1: TLabel
+        Left = 40
+        Height = 21
+        Top = 18
+        Width = 66
+        Caption = 'Sprzęt IT'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object shpLine3: TShape
+        Left = 30
+        Height = 1
+        Top = 48
+        Width = 507
+        Anchors = [akTop, akLeft, akRight]
+        Pen.Color = clSilver
+      end
+      object lblUserName2: TLabel
+        Left = 488
+        Height = 21
+        Top = 18
+        Width = 35
+        Anchors = [akTop, akRight]
+        Caption = '1.0.0'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 40
+        Height = 17
+        Top = 90
+        Width = 201
+        Caption = 'czeslaw.wludarczyk@aqgroup.com'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Color = clHotLight
+        Font.Height = -13
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 40
+        Height = 17
+        Top = 66
+        Width = 217
+        Caption = '© 2024 AQ Wiring Systems Sp. z o.o.'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+    end
+    object pnlUserContent1: TPanel
+      Left = 0
+      Height = 136
+      Top = 176
+      Width = 567
+      Align = alTop
+      BorderSpacing.Top = 20
+      BevelOuter = bvNone
+      ClientHeight = 136
+      ClientWidth = 567
+      Color = 16382457
+      DoubleBuffered = True
+      ParentBackground = False
+      ParentColor = False
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      object shpContent3: TBGRAShape
+        Left = 30
+        Height = 120
+        Top = 8
+        Width = 507
+        Align = alClient
+        Angle = 45
+        BorderColor = clSilver
+        BorderGradient.StartColor = clWhite
+        BorderGradient.EndColor = clBlack
+        BorderGradient.GradientType = gtLinear
+        BorderGradient.Point1XPercent = 0
+        BorderGradient.Point1YPercent = 0
+        BorderGradient.Point2XPercent = 100
+        BorderGradient.Point2YPercent = 100
+        FillColor = clWhite
+        FillOpacity = 255
+        FillGradient.StartColor = clWhite
+        FillGradient.EndColor = clBlack
+        FillGradient.GradientType = gtLinear
+        FillGradient.Point1XPercent = 0
+        FillGradient.Point1YPercent = 0
+        FillGradient.Point2XPercent = 0
+        FillGradient.Point2YPercent = 100
+        BorderSpacing.Left = 30
+        BorderSpacing.Top = 8
+        BorderSpacing.Right = 30
+        BorderSpacing.Bottom = 8
+        Caption = 'shpContent2'
+        RoundRadius = 10
+      end
+      object lblUserName3: TLabel
+        Left = 40
+        Height = 21
+        Top = 18
+        Width = 74
+        Caption = 'Biblioteki'
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object shpLine4: TShape
+        Left = 30
+        Height = 1
+        Top = 48
+        Width = 507
+        Anchors = [akTop, akLeft, akRight]
+        Pen.Color = clSilver
+      end
+      object Label2: TLabel
+        Left = 40
+        Height = 17
+        Top = 66
+        Width = 101
+        Caption = 'sqlite3.dll (64-bit)'
+      end
+      object Label3: TLabel
+        Left = 481
+        Height = 17
+        Top = 66
+        Width = 34
+        Anchors = [akTop, akRight]
+        Caption = '3.46.1'
+      end
+      object Label5: TLabel
+        Left = 40
+        Height = 17
+        Top = 90
+        Width = 154
+        Caption = 'BGRA Controls for Lazarus'
+      end
+      object Label6: TLabel
+        Left = 478
+        Height = 17
+        Top = 90
+        Width = 37
+        Anchors = [akTop, akRight]
+        Caption = '9.0.1.3'
+      end
+    end
+  end
+end

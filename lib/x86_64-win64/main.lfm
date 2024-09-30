@@ -1,29 +1,31 @@
 object frmMain: TfrmMain
-  Left = 304
-  Height = 787
-  Top = 127
-  Width = 1006
+  Left = 401
+  Height = 791
+  Top = 152
+  Width = 936
   Caption = 'Sprzęt IT'
-  ClientHeight = 787
-  ClientWidth = 1006
+  ClientHeight = 791
+  ClientWidth = 936
   Color = 15987699
-  Constraints.MinHeight = 300
+  Constraints.MinHeight = 360
+  Constraints.MinWidth = 785
   Font.CharSet = EASTEUROPE_CHARSET
   Font.Height = -13
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnResize = FormResize
   LCLVersion = '3.4.0.0'
   object pnlSplitView: TPanel
     Left = 0
-    Height = 740
+    Height = 744
     Top = 47
     Width = 72
     Align = alLeft
     BevelColor = 15987699
     BevelOuter = bvNone
-    ClientHeight = 740
+    ClientHeight = 744
     ClientWidth = 72
     Font.CharSet = ANSI_CHARSET
     Font.Height = -19
@@ -35,7 +37,7 @@ object frmMain: TfrmMain
     TabOrder = 0
     object ScrollBox1: TScrollBox
       Left = 0
-      Height = 616
+      Height = 620
       Top = 0
       Width = 72
       HorzScrollBar.Page = 1
@@ -46,7 +48,7 @@ object frmMain: TfrmMain
       VertScrollBar.Tracking = True
       Align = alClient
       BorderStyle = bsNone
-      ClientHeight = 616
+      ClientHeight = 620
       ClientWidth = 72
       Color = 15987699
       ParentBackground = False
@@ -749,7 +751,7 @@ object frmMain: TfrmMain
       end
       object pnlDivideMenu5: TPanel
         Left = 0
-        Height = 104
+        Height = 108
         Top = 512
         Width = 72
         Align = alClient
@@ -761,7 +763,7 @@ object frmMain: TfrmMain
     object pnlInfoMenu: TPanel
       Left = 0
       Height = 57
-      Top = 678
+      Top = 682
       Width = 72
       Align = alBottom
       BorderSpacing.Top = 2
@@ -819,6 +821,7 @@ object frmMain: TfrmMain
         Font.Quality = fqDraft
         Layout = tlCenter
         ParentFont = False
+        OnClick = lblInfoMenuClick
         OnMouseEnter = pnlInfoMenuMouseEnter
         OnMouseLeave = pnlInfoMenuMouseLeave
       end
@@ -838,6 +841,7 @@ object frmMain: TfrmMain
         Font.Quality = fqDraft
         Layout = tlCenter
         ParentFont = False
+        OnClick = lblInfoMenuClick
         OnMouseEnter = pnlInfoMenuMouseEnter
         OnMouseLeave = pnlInfoMenuMouseLeave
       end
@@ -845,7 +849,7 @@ object frmMain: TfrmMain
     object pnlSettingsMenu: TPanel
       Left = 0
       Height = 57
-      Top = 619
+      Top = 623
       Width = 72
       Align = alBottom
       BorderSpacing.Top = 2
@@ -928,7 +932,7 @@ object frmMain: TfrmMain
     object shpSplitMenuDivideBottom: TShape
       Left = 2
       Height = 1
-      Top = 616
+      Top = 620
       Width = 68
       Align = alBottom
       BorderSpacing.Left = 2
@@ -938,22 +942,22 @@ object frmMain: TfrmMain
   end
   object pnlContentBck: TPanel
     Left = 72
-    Height = 740
+    Height = 744
     Top = 47
-    Width = 934
+    Width = 864
     Align = alClient
-    BevelColor = 15987699
+    BevelColor = 16382457
     BevelOuter = bvNone
     Caption = 'Content'
-    ClientHeight = 740
-    ClientWidth = 934
+    ClientHeight = 744
+    ClientWidth = 864
     ParentBackground = False
     TabOrder = 1
     object shpContent: TBGRAShape
       Left = 0
-      Height = 770
+      Height = 774
       Top = 0
-      Width = 958
+      Width = 888
       Anchors = [akTop, akLeft, akRight, akBottom]
       Angle = 45
       BorderColor = clSilver
@@ -964,7 +968,7 @@ object frmMain: TfrmMain
       BorderGradient.Point1YPercent = 0
       BorderGradient.Point2XPercent = 100
       BorderGradient.Point2YPercent = 100
-      FillColor = clWhite
+      FillColor = 16382457
       FillOpacity = 255
       FillGradient.StartColor = clWhite
       FillGradient.EndColor = clBlack
@@ -978,13 +982,13 @@ object frmMain: TfrmMain
     end
     object pnlContent: TPanel
       Left = 4
-      Height = 732
+      Height = 736
       Top = 4
-      Width = 926
+      Width = 856
       Align = alClient
       BorderSpacing.Around = 4
       BevelOuter = bvNone
-      Color = clWhite
+      Color = 16382457
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
@@ -994,11 +998,11 @@ object frmMain: TfrmMain
     Left = 0
     Height = 47
     Top = 0
-    Width = 1006
+    Width = 936
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 47
-    ClientWidth = 1006
+    ClientWidth = 936
     Color = 15987699
     ParentBackground = False
     ParentColor = False

@@ -51,12 +51,14 @@ type
     shpLineEdit7: TShape;
     procedure btnSaveClick(Sender: TObject);
     procedure chbActiveChange(Sender: TObject);
+    procedure edtNameChange(Sender: TObject);
     procedure edtNameEnter(Sender: TObject);
     procedure edtNameExit(Sender: TObject);
     procedure edtNameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure edtNumberEnter(Sender: TObject);
     procedure edtNumberExit(Sender: TObject);
     procedure edtNumberKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure edtSurnameChange(Sender: TObject);
     procedure edtSurnameEnter(Sender: TObject);
     procedure edtSurnameExit(Sender: TObject);
     procedure edtSurnameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -66,7 +68,7 @@ type
     procedure lblCloseMouseEnter(Sender: TObject);
     procedure lblCloseMouseLeave(Sender: TObject);
   private
-
+    procedure GetCustomer();
   public
 
   end;
@@ -82,15 +84,10 @@ uses shadow, Data, users;
 
   { TfrmEditUser }
 
-procedure TfrmEditUser.FormShow(Sender: TObject);
+procedure TfrmEditUser.GetCustomer();
 var
   status: integer;
 begin
-  Color := $00C9C9C9;
-  SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) or
-    WS_EX_LAYERED);
-  SetLayeredWindowAttributes(Handle, frmEditUser.Color, 255, LWA_COLORKEY);
-
   //Get customer data
   DBModule.SQLQuery.Close;
   DBModule.SQLQuery.SQL.Text :=
@@ -108,6 +105,17 @@ begin
   if status = 1 then chbActive.Checked := True
   else
     chbActive.Checked := False;
+end;
+
+procedure TfrmEditUser.FormShow(Sender: TObject);
+begin
+  Color := $00C9C9C9;
+  SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) or
+    WS_EX_LAYERED);
+  SetLayeredWindowAttributes(Handle, frmEditUser.Color, 255, LWA_COLORKEY);
+
+  //Get Customers data
+  GetCustomer();
 
   //Set editbox colors
   shpEditBck1.BorderColor := clSilver;
@@ -230,6 +238,11 @@ begin
   lblUserExist.Visible := False;
 end;
 
+procedure TfrmEditUser.edtNameChange(Sender: TObject);
+begin
+  shpEditBck1.BorderColor := clSilver;
+end;
+
 procedure TfrmEditUser.edtNameExit(Sender: TObject);
 begin
   shpEditBck1.Height := 29;
@@ -267,6 +280,11 @@ begin
   if Key = VK_RETURN then Key := VK_TAB;
   shpEditBck3.BorderColor := clSilver;
   lblUserExist.Visible := False;
+end;
+
+procedure TfrmEditUser.edtSurnameChange(Sender: TObject);
+begin
+  shpEditBck2.BorderColor := clSilver;
 end;
 
 procedure TfrmEditUser.edtSurnameEnter(Sender: TObject);

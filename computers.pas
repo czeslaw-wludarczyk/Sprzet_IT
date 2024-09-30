@@ -65,6 +65,7 @@ type
     stBoxComputers: TListBox;
     procedure btnAddClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
     procedure FormPaint(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -91,7 +92,7 @@ implementation
 
 {$R *.lfm}
 
-uses main, Data, add_computer, shadow, db_helper, del_computer, del_computer_error;
+uses main, Data, add_computer, shadow, db_helper, del_computer, del_computer_error, edit_computer;
 
   { TfrmComputers }
 
@@ -131,7 +132,7 @@ begin
   ComputerList := TComputersList.Create();
 
   //Get ID category for computers kategory name
-  category := db_helper.Get_category();
+  category := db_helper.Get_category('Komputer');
 
   try
     DBModule.SQLQuery.Close;
@@ -295,6 +296,27 @@ begin
         Exit;
       end;
     end;
+  end;
+end;
+
+procedure TfrmComputers.btnEditClick(Sender: TObject);
+ var
+  i: integer;
+begin
+  for i := 0 to stBoxComputers.Items.Count - 1 do
+    if stBoxComputers.Selected[i] then
+    begin
+      old_selected := i;
+    end;
+
+  if stBoxComputers.Items.Count > 0 then
+  begin
+    frmShadow.Show();
+    frmEditComputer.ShowModal();
+    frmMain.SetFocus;
+    stBoxComputers.Clear;
+    GetComputers();
+    if stBoxComputers.Items.Count - 1 >= 0 then stBoxComputers.Selected[old_selected] := True;
   end;
 end;
 
