@@ -605,9 +605,9 @@ object frmAddComputer: TfrmAddComputer
     OnMouseDown = shpFormBckMouseDown
   end
   object lblComputerExist: TLabel
-    Left = 184
+    Left = 186
     Height = 17
-    Top = 542
+    Top = 540
     Width = 126
     Alignment = taCenter
     Anchors = [akLeft, akBottom]

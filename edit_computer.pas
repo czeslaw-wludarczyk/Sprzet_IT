@@ -74,6 +74,7 @@ type
     shpLineEdit8: TShape;
     shpLineEdit9: TShape;
     procedure btnCancelClick(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
     procedure edtAQNameEnter(Sender: TObject);
     procedure edtAQNameExit(Sender: TObject);
     procedure edtAQNameKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -107,8 +108,11 @@ type
     procedure shpFormBckMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
   private
+  var
+    id_item: integer;
     procedure CloseTypeMenu();
     procedure GetComputerData();
+    procedure UpdateComputerData();
   public
 
   end;
@@ -133,12 +137,16 @@ procedure TfrmEditComputer.GetComputerData();
 var
   status: integer;
 begin
+  //Get id_item from computer list
+  id_item := TComputer(frmComputers.stBoxComputers.Items.Objects[
+    frmComputers.stBoxComputers.ItemIndex]).id_item;
+
   //Get customer data
   DBModule.SQLQuery.Close;
   DBModule.SQLQuery.SQL.Text :=
     'select * from items where id_item = :id_item';
-  DBModule.SQLQuery.Params.ParamByName('id_item').AsInteger :=
-    TComputer(frmComputers.stBoxComputers.Items.Objects[frmComputers.stBoxComputers.ItemIndex]).id_item;
+  DBModule.SQLQuery.Params.ParamByName('id_item').AsInteger := id_item;
+
   DBModule.SQLQuery.Open;
 
   //Set editbox with selected user data
@@ -147,7 +155,42 @@ begin
   edtMark.Text := DBModule.SQLQuery.FieldByName('mark').AsString;
   edtModel.Text := DBModule.SQLQuery.FieldByName('model').AsString;
   edtSN.Text := DBModule.SQLQuery.FieldByName('serial_number').AsString;
-  edtDescription.Text:= DBModule.SQLQuery.FieldByName('description').AsString;;
+  edtDescription.Text := DBModule.SQLQuery.FieldByName('description').AsString;
+  ;
+end;
+
+procedure TfrmEditComputer.UpdateComputerData();
+begin
+  //Check SN and AQName after update
+  if (edtAQName.Text <> '') and (edtSN.Text <> '') then
+  begin
+    try
+      DBModule.SQLQuery.Close;
+      DBModule.SQLQuery.SQL.Text :=
+        'select id_item, aq_name, serial_number from items where aq_name = :aq_name' +
+        ' or serial_number = :SN';
+      DBModule.SQLQuery.Params.ParamByName('aq_name').AsString := edtAQName.Text;
+      DBModule.SQLQuery.Params.ParamByName('SN').AsString := edtSN.Text;
+      DBModule.SQLQuery.Open;
+    except
+      on e: Exception do
+        ShowMessage(e.ToString);
+    end;
+  end;
+
+  if DBModule.SQLQuery.RecordCount = 0 then
+  begin
+    //if computer doesn't exist show information about add computers to database
+    lblComputerTitle.Caption := 'Komputer nie istnieje';
+    Exit;
+  end;
+  //Check if id_item as the same as we compare if "Yes" update data computer else show computer exist
+  if (id_item <> DBModule.SQLQuery.FieldByName('id_item').AsInteger) then
+    lblComputerTitle.Caption := 'Nie pasuje'
+  else
+    lblComputerTitle.Caption := 'Pasuje';
+
+  //Check if require data is not empty
 end;
 
 procedure TfrmEditComputer.lblCloseClick(Sender: TObject);
@@ -188,7 +231,7 @@ begin
 
   //Get Computer Data
   GetComputerData();
-  edtAQName.SelStart:= Length(edtAQName.Text);
+  edtAQName.SelStart := Length(edtAQName.Text);
 
 end;
 
@@ -202,6 +245,11 @@ begin
   Close();
 end;
 
+procedure TfrmEditComputer.btnSaveClick(Sender: TObject);
+begin
+  UpdateComputerData();
+end;
+
 procedure TfrmEditComputer.edtAQNameEnter(Sender: TObject);
 begin
   CloseTypeMenu();
@@ -209,7 +257,7 @@ begin
   shpEditBck2.Height := 28;
   shpLineEdit4.Pen.Color := $00BA6900;
   shpLineEdit5.Pen.Color := $00BA6900;
-  edtAQname.SelStart:= Length(edtAQName.Text);
+  edtAQname.SelStart := Length(edtAQName.Text);
 end;
 
 procedure TfrmEditComputer.edtAQNameExit(Sender: TObject);
@@ -233,7 +281,7 @@ begin
   shpEditBck6.Height := shpEditBck6.Height - 1;
   shpLineEdit12.Pen.Color := $00BA6900;
   shpLineEdit13.Pen.Color := $00BA6900;
-  edtDescription.SelStart:= Length(edtDescription.Text);
+  edtDescription.SelStart := Length(edtDescription.Text);
 end;
 
 procedure TfrmEditComputer.edtDescriptionExit(Sender: TObject);
@@ -250,7 +298,7 @@ begin
   shpEditBck3.Height := 28;
   shpLineEdit6.Pen.Color := $00BA6900;
   shpLineEdit7.Pen.Color := $00BA6900;
-  edtMark.SelStart:= Length(edtMark.Text);
+  edtMark.SelStart := Length(edtMark.Text);
 end;
 
 procedure TfrmEditComputer.edtMarkExit(Sender: TObject);
@@ -274,7 +322,7 @@ begin
   shpEditBck4.Height := 28;
   shpLineEdit8.Pen.Color := $00BA6900;
   shpLineEdit9.Pen.Color := $00BA6900;
-  edtModel.SelStart:= Length(edtModel.Text);
+  edtModel.SelStart := Length(edtModel.Text);
 end;
 
 procedure TfrmEditComputer.edtModelExit(Sender: TObject);
@@ -323,7 +371,7 @@ begin
   shpEditBck5.Height := 28;
   shpLineEdit10.Pen.Color := $00BA6900;
   shpLineEdit11.Pen.Color := $00BA6900;
-  edtSN.SelStart:= Length(edtSN.Text);
+  edtSN.SelStart := Length(edtSN.Text);
 end;
 
 procedure TfrmEditComputer.edtSNExit(Sender: TObject);

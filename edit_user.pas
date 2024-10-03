@@ -69,6 +69,7 @@ type
     procedure lblCloseMouseLeave(Sender: TObject);
   private
     procedure GetCustomerData();
+    procedure UpdateCustomerData();
   public
 
   end;
@@ -105,6 +106,88 @@ begin
   if status = 1 then chbActive.Checked := True
   else
     chbActive.Checked := False;
+end;
+
+procedure TfrmEditUser.UpdateCustomerData();
+var
+  status: integer;
+begin
+  if (edtName.Text <> '') and (edtSurname.Text <> '') then
+  begin
+    try
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'select first_name, last_name, customer_number, status from customers where first_name = :name'
+      +
+      ' and last_name = :surname';
+    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
+    DBModule.SQLQuery.Open;
+    except
+      on e: Exception do
+      ShowMessage(e.ToString);
+    end;
+  end
+  else
+  begin
+    if (edtName.Text = '') or (edtName.Text = '') then shpEditBck1.BorderColor := clRed;
+    if (edtSurname.Text = '') or (edtSurname.Text = '') then
+      shpEditBck2.BorderColor := clRed;
+    Exit;
+  end;
+
+  if chbActive.Checked then status := 1
+  else
+    status := 0;
+
+  //Check if number or status changed - if yes then update existing customer data
+  if (DBModule.SQLQuery.RecordCount > 0) and
+    (DBModule.SQLQuery.FieldByName('customer_number').AsString = edtNumber.Text) and
+    (DBModule.SQLQuery.FieldByName('status').AsInteger = status) then
+  begin
+    lblUserExist.Visible := True;
+  end;
+
+  if lblUserExist.Visible then
+  begin
+    //if user exist exit procedure
+    exit;
+  end
+  else
+  begin
+    //update user data
+    try
+    DBModule.SQLQuery.Close;
+    DBModule.SQLQuery.SQL.Text :=
+      'update customers set first_name = :name, last_name = :surname, customer_number = :number,'
+      +
+      'status = :status, full_name = :fullname  where id_customer = :id';
+    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
+    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
+    DBModule.SQLQuery.Params.ParamByName('fullname').AsString :=
+      edtName.Text + ' ' + edtSurname.Text;
+
+    if edtNumber.Text <> '' then
+      DBModule.SQLQuery.Params.ParamByName('number').AsString := edtNumber.Text
+    else
+      DBModule.SQLQuery.Params.ParamByName('number').Clear;
+
+    DBModule.SQLQuery.Params.ParamByName('status').AsInteger := status;
+    DBModule.SQLQuery.Params.ParamByName('id').AsInteger :=
+      TCustomer(frmUsers.stBoxUsers.Items.Objects[frmUsers.stBoxUsers.ItemIndex]).id_customer;
+    DBModule.SQLQuery.ExecSQL;
+    Close();
+    except
+      //Check unique key full name if exist show 'User Exist'
+      on e: Exception do
+      begin
+      lblUserExist.Visible := True;
+      shpEditBck1.BorderColor := clRed;
+      shpEditBck2.BorderColor := clRed;
+      end;
+    end;
+  end;
+
 end;
 
 procedure TfrmEditUser.FormShow(Sender: TObject);
@@ -165,72 +248,8 @@ begin
 end;
 
 procedure TfrmEditUser.btnSaveClick(Sender: TObject);
-var
-  status: integer;
 begin
-  if (edtName.Text <> '') and (edtSurname.Text <> '') then
-  begin
-    DBModule.SQLQuery.Close;
-    DBModule.SQLQuery.SQL.Text :=
-      'select first_name, last_name, customer_number, status from customers where first_name = :name'
-      +
-      ' and last_name = :surname';
-    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
-    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
-    DBModule.SQLQuery.Open;
-  end
-  else
-  begin
-    if (edtName.Text = '') or (edtName.Text = '') then shpEditBck1.BorderColor := clRed;
-    if (edtSurname.Text = '') or (edtSurname.Text = '') then
-      shpEditBck2.BorderColor := clRed;
-    Exit;
-  end;
-
-  if chbActive.Checked then status := 1
-  else
-    status := 0;
-
-  //Check if number or status changed - if yes then update existing customer data
-  if (DBModule.SQLQuery.RecordCount > 0) and
-    (DBModule.SQLQuery.FieldByName('customer_number').AsString = edtNumber.Text) and
-    (DBModule.SQLQuery.FieldByName('status').AsInteger = status) then
-  begin
-    lblUserExist.Visible := True;
-  end;
-
-  if lblUserExist.Visible then
-  begin
-    //if user exist exit procedure
-    lblUserName1.Caption := 'User exist';
-    exit;
-  end
-  else
-  begin
-    //update user data
-    DBModule.SQLQuery.Close;
-    DBModule.SQLQuery.SQL.Text :=
-      'update customers set first_name = :name, last_name = :surname, customer_number = :number,'
-      +
-      'status = :status, full_name = :fullname  where id_customer = :id';
-    DBModule.SQLQuery.Params.ParamByName('name').AsString := edtName.Text;
-    DBModule.SQLQuery.Params.ParamByName('surname').AsString := edtSurname.Text;
-    DBModule.SQLQuery.Params.ParamByName('fullname').AsString :=
-      edtName.Text + ' ' + edtSurname.Text;
-
-    if edtNumber.Text <> '' then
-      DBModule.SQLQuery.Params.ParamByName('number').AsString := edtNumber.Text
-    else
-      DBModule.SQLQuery.Params.ParamByName('number').Clear;
-
-    DBModule.SQLQuery.Params.ParamByName('status').AsInteger := status;
-    DBModule.SQLQuery.Params.ParamByName('id').AsInteger :=
-      TCustomer(frmUsers.stBoxUsers.Items.Objects[frmUsers.stBoxUsers.ItemIndex]).id_customer;
-    DBModule.SQLQuery.ExecSQL;
-    lblUserName1.Caption := 'User data update...';
-    Close();
-  end;
-
+  UpdateCustomerData();
 end;
 
 procedure TfrmEditUser.chbActiveChange(Sender: TObject);

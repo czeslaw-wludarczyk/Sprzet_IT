@@ -459,6 +459,7 @@ begin
   shpEditBck6.Height := shpEditBck6.Height - 1;
   shpLineEdit12.Pen.Color := $00BA6900;
   shpLineEdit13.Pen.Color := $00BA6900;
+  edtDescription.SelStart:= Length(edtDescription.Text);
 end;
 
 procedure TfrmAddComputer.edtDescriptionExit(Sender: TObject);

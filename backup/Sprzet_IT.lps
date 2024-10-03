@@ -19,7 +19,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="231"/>
         <CursorPos X="90" Y="248"/>
         <UsageCount Value="200"/>
@@ -54,13 +53,11 @@
         <ComponentName Value="frmUsers"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="282"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="281"/>
         <CursorPos X="23" Y="453"/>
         <FoldState Value=" T3jL0}5b"/>
-        <UsageCount Value="198"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="200"/>
       </Unit>
       <Unit>
         <Filename Value="add_user.pas"/>
@@ -69,8 +66,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
+        <TopLine Value="85"/>
         <CursorPos X="18" Y="160"/>
-        <UsageCount Value="136"/>
+        <UsageCount Value="139"/>
       </Unit>
       <Unit>
         <Filename Value="shadow.pas"/>
@@ -80,7 +78,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="92" Y="45"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="135"/>
       </Unit>
       <Unit>
         <Filename Value="del_user_error.pas"/>
@@ -91,7 +89,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="28"/>
         <CursorPos X="41" Y="56"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="91"/>
       </Unit>
       <Unit>
         <Filename Value="edit_user.pas"/>
@@ -99,12 +97,11 @@
         <ComponentName Value="frmEditUser"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="158"/>
-        <CursorPos X="3" Y="164"/>
-        <UsageCount Value="82"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="105"/>
+        <CursorPos X="10" Y="129"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="del_user.pas"/>
@@ -115,7 +112,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos X="27" Y="49"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="76"/>
       </Unit>
       <Unit>
         <Filename Value="computers.pas"/>
@@ -126,7 +123,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="138"/>
         <CursorPos X="85" Y="158"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="68"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -136,20 +133,18 @@
         <ComponentName Value="frmAddComputer"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="431"/>
         <CursorPos X="56" Y="462"/>
         <FoldState Value=" T3k30=S"/>
-        <UsageCount Value="47"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="50"/>
       </Unit>
       <Unit>
         <Filename Value="db_helper.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="62" Y="24"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="40"/>
       </Unit>
       <Unit>
         <Filename Value="del_computer.pas"/>
@@ -160,7 +155,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="34"/>
         <CursorPos X="6" Y="75"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="35"/>
       </Unit>
       <Unit>
         <Filename Value="del_computer_error.pas"/>
@@ -171,7 +166,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="46"/>
         <CursorPos X="11" Y="66"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="32"/>
       </Unit>
       <Unit>
         <Filename Value="information.pas"/>
@@ -180,12 +175,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Information"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="33"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="40"/>
         <CursorPos X="6" Y="49"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="30"/>
       </Unit>
       <Unit>
         <Filename Value="edit_computer.pas"/>
@@ -193,10 +186,11 @@
         <ComponentName Value="frmEditComputer"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="162"/>
-        <CursorPos X="47" Y="191"/>
-        <UsageCount Value="22"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="156"/>
+        <CursorPos X="35" Y="186"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -470,15 +464,7 @@
         <UsageCount Value="11"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="edit_computer.pas"/>
-        <Caret Line="221" Column="3" TopLine="212"/>
-      </Position>
-      <Position>
-        <Filename Value="edit_computer.pas"/>
-        <Caret Line="228" Column="3" TopLine="214"/>
-      </Position>
+    <JumpHistory HistoryIndex="22">
       <Position>
         <Filename Value="edit_computer.pas"/>
         <Caret Line="240" Column="37" TopLine="213"/>
@@ -512,10 +498,6 @@
         <Caret Line="217" Column="5" TopLine="191"/>
       </Position>
       <Position>
-        <Filename Value="edit_user.pas"/>
-        <Caret Line="118" Column="18" TopLine="95"/>
-      </Position>
-      <Position>
         <Filename Value="edit_computer.pas"/>
         <Caret Line="132" Column="22" TopLine="115"/>
       </Position>
@@ -534,34 +516,6 @@
       <Position>
         <Filename Value="edit_computer.pas"/>
         <Caret Line="149" Column="75" TopLine="127"/>
-      </Position>
-      <Position>
-        <Filename Value="edit_user.pas"/>
-        <Caret Line="118" Column="18" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="471" TopLine="218"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="341" Column="41" TopLine="328"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="365" Column="42" TopLine="331"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="394" Column="44" TopLine="375"/>
-      </Position>
-      <Position>
-        <Filename Value="add_computer.pas"/>
-        <Caret Line="438" Column="38" TopLine="431"/>
-      </Position>
-      <Position>
-        <Filename Value="edit_computer.pas"/>
-        <Caret Line="148" Column="56" TopLine="156"/>
       </Position>
       <Position>
         <Filename Value="edit_computer.pas"/>
@@ -584,12 +538,24 @@
         <Caret Line="144" Column="34" TopLine="110"/>
       </Position>
       <Position>
-        <Filename Value="information.pas"/>
-        <Caret Line="48" Column="6" TopLine="32"/>
-      </Position>
-      <Position>
         <Filename Value="main.pas"/>
         <Caret Line="248" Column="84" TopLine="246"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_computer.pas"/>
+        <Caret Line="156" Column="5" TopLine="102"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_computer.pas"/>
+        <Caret Line="154" Column="17" TopLine="133"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_computer.pas"/>
+        <Caret Line="147" Column="72" TopLine="147"/>
+      </Position>
+      <Position>
+        <Filename Value="edit_computer.pas"/>
+        <Caret Line="179" Column="113" TopLine="147"/>
       </Position>
     </JumpHistory>
     <RunParams>

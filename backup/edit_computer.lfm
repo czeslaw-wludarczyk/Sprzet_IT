@@ -117,6 +117,7 @@ object frmEditComputer: TfrmEditComputer
     Caption = 'Zapisz'
     Default = True
     TabOrder = 0
+    OnClick = btnSaveClick
   end
   object btnCancel: TButton
     Left = 322
